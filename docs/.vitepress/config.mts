@@ -7,13 +7,13 @@ export default defineConfig({
   base: '/Tutorial/', // 注意斜杠开头和结尾不能少！GitHub 页面下部署站点，则需要设置此项
   head: [
     // 站点图标
-    ['link', { rel: 'icon', href: '/logo/will-o.ico' }],
+    ['link', { rel: 'icon', href: '/Tutorial/logo/will-o.ico' }], // 构建到GitHub 页面,需要加仓库的名字
   ],
 
   // 主题级选项
   themeConfig: {
     // 导航栏上显示的 Logo，位于站点标题前。
-    logo: '/logo/will-o.png',
+    logo: '/Tutorial/logo/will-o.png',
     // 启用本地搜索
     search: {
       provider: 'local',
