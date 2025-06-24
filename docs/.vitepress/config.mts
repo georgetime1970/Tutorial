@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: '乔治的编程手册',
   description: '乔治的编程手册, 记录编程学习过程',
+  base: '/Tutorial/', // 注意斜杠开头和结尾不能少！GitHub 页面下部署站点，则需要设置此项
   head: [
     // 站点图标
     ['link', { rel: 'icon', href: '/logo/will-o.ico' }],
