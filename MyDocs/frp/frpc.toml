@@ -1,0 +1,15 @@
+# 通用配置
+serverAddr = "108.160.133.182"
+serverPort = 8800 #7000为常用端口
+auth.token = "your-secret-token888" #设置验证
+
+#设置rpc 单向校验 frps 身份
+transport.tls.trustedCaFile = "./ca.crt"
+
+# HTTP 代理配置
+[[proxies]]
+name = "web-http"
+type = "http"
+localIP = "127.0.0.1"
+localPort = 5000 #本地服务访问端口
+customDomains = ["scenefrog.com"] #指定访问域名
