@@ -13,7 +13,7 @@ export default defineConfig({
   // 主题级选项
   themeConfig: {
     // 导航栏上显示的 Logo，位于站点标题前。
-    logo: '/Tutorial/logo/will-o.png',
+    logo: '/logo/will-o.png',
     // 启用本地搜索
     search: {
       provider: 'local',
