@@ -45,7 +45,7 @@
 - `sudo apt install gnome-brower-connector `
 
 > 安装完成后，系统会多出一个叫**扩展**的应用，这个应用就是管理 GNOME Shell 扩展扩展的，从 GNOME Shell 官网上下载的扩展都会显示在这里
-> GNOME Shell 官网上的扩展直接点击安装就可以，要注意时候兼容，时候能正常工作
+> GNOME Shell 官网上的扩展直接点击安装就可以，要注意是否兼容，是否能正常工作
 
 ## GNOME 插件推荐
 
