@@ -23,6 +23,9 @@ hero:
       text: Vue3手册
       link: /tutorial/Vue/1_vue简介
     - theme: alt
+      text: Linux笔记
+      link: /tutorial/Linux/node.md
+    - theme: alt
       text: 思想结晶
       link: /MyThink/思想核心
   image:

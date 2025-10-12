@@ -398,6 +398,13 @@ export default defineConfig({
           ],
         },
       ],
+      // Linux笔记 侧边栏
+      '/tutorial/Linux/': [
+        {
+          text: 'Linux笔记',
+          items: [{ text: '基础', link: '/tutorial/Linux/note' }],
+        },
+      ],
       // 思想结晶 侧边栏
       '/MyThink/': [
         {
