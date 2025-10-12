@@ -402,7 +402,10 @@ export default defineConfig({
       '/tutorial/Linux/': [
         {
           text: 'Linux笔记',
-          items: [{ text: '基础', link: '/tutorial/Linux/note' }],
+          items: [
+            { text: 'Ubuntu桌面版配置', link: '/tutorial/Linux/ubuntu_configuer' },
+            { text: 'Linux基础', link: '/tutorial/Linux/note' },
+          ],
         },
       ],
       // 思想结晶 侧边栏

@@ -24,7 +24,7 @@ hero:
       link: /tutorial/Vue/1_vue简介
     - theme: alt
       text: Linux笔记
-      link: /tutorial/Linux/node.md
+      link: /tutorial/Linux/note.md
     - theme: alt
       text: 思想结晶
       link: /MyThink/思想核心
