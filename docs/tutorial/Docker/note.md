@@ -14,8 +14,8 @@
 `镜像`: 一个模具,一个 docker 中不会有 2 个一模一样的镜像
 `容器`: 使用镜像这个模具制作的东西,可以有很多功能一样的容器,但每个容器都有自己的属性
 
-![命令总结](images/docker_1.png)
-
+<!-- ![命令总结](/images/docker_1.png) -->
+<img src="/images/docker_1.png" style="zoom:80%;border:1px solid black;border-radius:10px" />
 ### 镜像命令
 
 | 命令            | 说明                                    | 示例                                                                            |
@@ -106,3 +106,18 @@
 | `docker login` | 登录 | `docker login -u <username>`                   |
 | `docker tag`   | 命名 | `docker tag 原镜像名 目标镜像名`(记得加版本号) |
 | `docker push`  | 推送 | `docker push [OPTIONS] NAME[:TAG]`             |
+
+## 存储
+
+容器运行时有自己的文件系统和环境,在容器里面修改或增加文件并不方便,而且一旦销毁容器,里面的数据也会消失,所以需要将主机的文件和容器的文件进行一种关联,操作主机的文件也就能操作容器的文件
+
+### 目录挂载
+
+`-v /app/nghtml:/usr/share/nginx/html`
+
+- 完整用法: `docke run -d -p 88:80 -v /app/nghtml:/usr/share/nginx/html --name mynginx nginx`
+- 在启动时,增加挂载参数,使主机的`/app/nghtml`和`/usr/share/nginx/html`形成关联,修改任何一个都会使另一个同步改变
+
+### 卷映射
+
+`-v ngconf:/etc/nginx`
