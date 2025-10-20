@@ -2,6 +2,7 @@
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
+# 首页导航标签
 hero:
   name: '乔治的编程手册'
   text: '先完成再完美!'
@@ -25,6 +26,9 @@ hero:
     - theme: alt
       text: Linux笔记
       link: /tutorial/Linux/note.md
+    - theme: alt
+      text: Docker笔记
+      link: /tutorial/Docker/note.md
     - theme: alt
       text: 思想结晶
       link: /MyThink/思想核心

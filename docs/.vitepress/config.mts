@@ -29,7 +29,7 @@ export default defineConfig({
     // 编辑链接配置
     editLink: {
       // GitHub (最常用)
-      pattern: 'https://github.com/georgetime1970/MyNotes/edit/main/docs/:path',
+      pattern: 'https://github.com/georgetime1970/Tutorial/tree/main/docs/:path',
       text: '在 GitHub 上编辑此页',
     },
 
@@ -406,6 +406,13 @@ export default defineConfig({
             { text: 'Ubuntu桌面版配置', link: '/tutorial/Linux/ubuntu_configure' },
             { text: 'Linux基础', link: '/tutorial/Linux/note' },
           ],
+        },
+      ],
+      // Linux笔记 侧边栏
+      '/tutorial/Docker/': [
+        {
+          text: 'Docker笔记',
+          items: [{ text: 'Docker基础', link: '/tutorial/Docker/note' }],
         },
       ],
       // 思想结晶 侧边栏
