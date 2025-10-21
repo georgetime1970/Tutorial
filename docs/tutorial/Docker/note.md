@@ -16,8 +16,6 @@
 
 ![命令总结](/images/docker_1.png)
 
-<!-- <img src="/images/docker_1.png" style="zoom:80%;border:1px solid black;border-radius:10px" /> -->
-
 ### 镜像命令
 
 | 命令            | 说明                                    | 示例                                                                            |
@@ -29,17 +27,18 @@
 
 ### 容器命令
 
-| 命令             | 说明             | 示例                                                                                                   |
-| ---------------- | ---------------- | ------------------------------------------------------------------------------------------------------ |
-| `docker run`     | 使用镜像启动容器 | `docker run  nginx` 如果没有这个镜像就会自动下载,而且会阻死控制台                                      |
-| `docker ps`      | 正在运行的容器   | `docker ps -a` 运行和停止的容器                                                                        |
-| `docker start`   | 启动容器         | 可以使用容器的名字`NAMES`或者 id`CONTAINER ID`(可以只写前 3 位)                                        |
-| `docker stop`    | 停止容器         | 使用方法同上                                                                                           |
-| `docker restart` | 重启容器         | 使用方法同上                                                                                           |
-| `docker stats`   | 容器资源占用     | 可查看实时 cpu,内存,网络,IO,使用方法同上                                                               |
-| `docker logs`    | 容器运行日志     | 使用方法同上                                                                                           |
-| `docker exec`    | 进入容器文件系统 | 使用方法同上                                                                                           |
-| `docker rm`      | 删除容器         | 先停止再删除,也可以`docker rm -f  58e`强制删除<br>删除所有状态的容器: `docker rm -f $(docker ps -aq)`` |
+| 命令             | 说明               | 示例                                                                                                   |
+| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------ |
+| `docker run`     | 使用镜像启动容器   | `docker run  nginx` 如果没有这个镜像就会自动下载,而且会阻死控制台                                      |
+| `docker ps`      | 列出正在运行的容器 | `docker ps -a` 运行和停止的容器<br> `docker ps -aq` 只列出所有容器的 id                                |
+| `docker start`   | 启动容器           | 可以使用容器的名字`NAMES`或者 id`CONTAINER ID`(可以只写前 3 位)                                        |
+| `docker stop`    | 停止容器           | 使用方法同上                                                                                           |
+| `docker restart` | 重启容器           | 使用方法同上                                                                                           |
+| `docker stats`   | 容器资源占用       | 可查看实时 cpu,内存,网络,IO,使用方法同上                                                               |
+| `docker logs`    | 容器运行日志       | 使用方法同上                                                                                           |
+| `docker exec`    | 进入容器文件系统   | 使用方法同上                                                                                           |
+| `docker rm`      | 删除容器           | 先停止再删除,也可以`docker rm -f  58e`强制删除<br>删除所有状态的容器: `docker rm -f $(docker ps -aq)`` |
+| `docker inspect` | 显示容器详细信息   | `docker inspect nginx`                                                                                 |
 
 **重点**
 
@@ -52,8 +51,9 @@
 `docker exec -it mynginx /bin/bash`
 
 - `-it`: 交互模式
-- `mynginx`: 使用容器名称进入容器的文件系统,也可以使用 id
+- `mynginx`: 使用容器名称进入正在运容器的文件系统,也可以使用 id
 - `/bin/bash`: 使用 bash 命令行,可以简写为 `bash`
+- 补充: `docker run -it nginx bash`使用 nginx 镜像创建一个容器,并进入容器的 bash 命令行,退出会停止容器
 
 > 修改 nginx 默认页面内容,可以进入`/usr/share/nginx/html`中修改`index.html`的内容.<br>
 > 容器内的系统非常轻量化,很多基本的命令都没有
@@ -156,3 +156,136 @@
   | `rm` | Remove one or more networks|
 - `docker network creat mynet` 创建名为`mynet`的自定义网络
 - `docker run -d -p 88:80 --network mynet --name mynginx nginx` 使用自定义网络启动容器,同一个网络中的其他容器应用就可以通过`http://mynginx:80`访问这个容器应用了
+
+## compose 文件
+
+1. 默认文件名是`compose.yaml`
+2. 这个文件的作用就是批量启动容器
+
+### compose 命令
+
+| 命令                                   | 说明                                                                                   |
+| -------------------------------------- | -------------------------------------------------------------------------------------- |
+| `docker compose up -d`                 | 上线,`docker compose -f <filename> up -d`指定文件启动,不指定就是默认使用`compose.yaml` |
+| `docker compose down`                  | 下线                                                                                   |
+| `docker compose start <name1> <name2>` | 指定启动已停止的容器                                                                   |
+| `docker compose stop <name1> <name2>`  | 指定停止已启动的容器                                                                   |
+| `docker compose scale <name2>=3`       | 扩容指定的容器至指定的数量                                                             |
+
+### compose 用法示例
+
+下面以启动一个 mysql 和 wordpress 服务为例(wordpress 博客网站),编写一个 compose.yaml 文件来一键同时启动 2 个服务
+
+```bash
+#创建网络
+docker network create blog
+
+#启动mysql
+docker run -d -p 3306:3306 \
+-e MYSQL_ROOT_PASSWORD=123456 \
+-e MYSQL_DATABASE=wordpress \
+-v mysql-data:/var/lib/mysql \
+-v ~/app/mysql/myconf:/etc/mysql/conf.d \
+--restart always \
+--name mysql \
+--network blog \
+mysql:8.0
+
+#启动wordpress
+docker run -d -p 8080:80 \
+-e WORDPRESS_DB_HOST=mysql \
+-e WORDPRESS_DB_USER=root \
+-e WORDPRESS_DB_PASSWORD=123456 \
+-e WORDPRESS_DB_NAME=wordpress \
+-v wordpress:/var/www/html \
+--restart always \
+--name wordpress-app \
+--network blog \
+wordpress:latest
+```
+
+> `-e` 环境变量
+> `--restart always` 开机自启
+
+### compose.yaml
+
+compose [语法参考](https://docs.docker.com/reference/compose-file/)
+
+compose 结构
+
+![compose结构](/images/docker_2.png)
+
+```yaml
+name: myblog # 顶层元素,这里是服务的名称
+
+services: # 顶层元素
+  mysql: # 启动的mysql容器名称,可以自定义,这个元素下就写run启动命令下的参数
+    # container_name: mysql01 # 定义容器的名称,如果不定义,就默认使用上一级定义的名称mysql
+    image: mysql:8.0 # 使用的镜像
+    ports: # 端口
+      - '88:80' # 数组形式
+    environment: # 环境变量,有2中写法,可以加 - 也可以不加
+      - MYSQL_ROOT_PASSWORD=123456 # 数据库密码
+      - MYSQL_DATABASE=wordpres # 数据库名称
+    volumes: # 如果使用了卷映射,后还需要到volumes的顶级元素中再次声明
+      - mysql-data:/var/lib/mysql # 卷映射,这里还需要到volumes的顶级元素中再次声明
+      - ~/app/mysql/myconf:/etc/mysql/conf.d # 目录挂载
+    network: # 网络
+      - blog # 加入blog网络
+    restart: always # 总是重启,开机自启
+
+  wordpress: # 启动的wordpress的容器名称,可以自定义
+    image: wordpress
+    ports:
+      - '8080:80'
+    environment:
+      - WORDPRESS_DB_HOST=mysql # ip,这里使用域名
+      - WORDPRESS_DB_USER=root # mysql用户名
+      - WORDPRESS_DB_PASSWORD=123456 # mysql密码
+      - WORDPRESS_DB_NAME=wordpres # mysql名称
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - blog
+    restart: always
+    depends_on: # 依赖项,这里workpress的启动依赖于mysql,所以需要mysql启动后再安装
+      - mysql
+
+networks: # 顶层元素
+  blog: # 需要加入的网络,下面还可以再配置
+
+volumes: # 顶层元素
+  mysql-data: # 这里再次声明卷,下面还可以再配置卷的其他属性
+  wordpress:
+```
+
+### compose 命令详解
+
+执行 `docker compose up -d` 程序会按照下面的顺序构建,构建的容器名称,卷名称,网络名称都会带有服务名称的前缀
+![构建结果](/images/docker_3.png)
+执行`docker compose dowm`会停止并删除 compose 内的所有容器,并删除所在网络,但会保留目录挂载和卷映射,方便下一次启动
+
+**`docker compose dowm` 的用法**
+
+```bash
+Usage:  docker compose down [OPTIONS] [SERVICES]
+
+Stop and remove containers, networks
+
+Options:
+      --dry-run          Execute(执行) command in dry run mode(试运行模式)
+      --remove-orphans   Remove containers for services not defined in the Compose file
+      --rmi string       Remove images used by services. "local" remove only images that don't have a custom tag
+                         ("local"|"all")
+  -t, --timeout int      Specify(指定) a shutdown timeout in seconds
+  -v, --volumes          Remove named(命名的) volumes declared(声明) in the "volumes" section(部分) of the Compose file and anonymous(匿名)
+                         volumes attached(附加) to containers
+```
+
+`docker compose down --rmi all -v`: 删除 compose 中的所有镜像,容器,网络,目录挂载和卷
+
+## dockerfile
+
+官方[文档地址](https://docs.docker.com/reference/dockerfile/)
+`docker commit` 是将容器制作成镜像,再使用`docker save`打包成文件
+`dockerfile`是直接使用脚本文件(相当于命令的集合),再使用`docker bulid`直接构建一个镜像
