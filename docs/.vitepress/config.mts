@@ -9,7 +9,13 @@ export default defineConfig({
     // 站点图标
     ['link', { rel: 'icon', href: '/Tutorial/logo/will-o.ico' }], // 构建到GitHub 页面,需要加仓库的名字
   ],
-
+  // markdown 配置
+  markdown: {
+    image: {
+      // 默认禁用；设置为 true 可为所有图片启用懒加载。
+      lazyLoading: true,
+    },
+  },
   // 主题级选项
   themeConfig: {
     // 导航栏上显示的 Logo，位于站点标题前。
@@ -56,6 +62,7 @@ export default defineConfig({
       { text: '思想结晶', link: '/MyThink/思想核心' },
     ],
 
+    // 侧边栏是文档的主要导航块
     sidebar: {
       // JavaScript基础 侧边栏
       '/tutorial/JavaScript/': [
@@ -442,6 +449,7 @@ export default defineConfig({
       ],
     },
 
+    // 社交链接
     // socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
   },
 })
