@@ -29,9 +29,16 @@
 
 ### 配置 chrome
 
-- 使用 ubuntu 自带的浏览器搜索 `chrome下载`
-- [chrome 官方下载地址](https://www.google.com/chrome/dr/download)
-- 登陆 google 账户
+1. 使用 ubuntu 自带的浏览器搜索 `chrome下载`
+   [chrome 官方下载地址](https://www.google.com/chrome/dr/download)
+   登陆 google 账户
+
+2. 命令行下载
+
+   ```Bash
+   wget -P ~/downloads https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+   sudo apt install ~/downloads/google-chrome-stable_current_amd64.deb
+   ```
 
 ### GNOME Shell 集成扩展
 
@@ -61,8 +68,8 @@
   - 配置 `git` - 安装`git`: `sudo install git` - 配置账户和邮箱:
 
     ```bash
-    git config user.name "george"
-    git config user.email "nihaokexiao@gmali.com"
+    git config --global user.name "george"
+    git config --global user.email "nihaokexiao@gmali.com"
     ```
 
 - `glate`: 简单的划词翻译软件,快捷键 `ctrl alt space`

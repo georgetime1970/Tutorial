@@ -262,7 +262,9 @@ volumes: # 顶层元素
 ### compose 命令详解
 
 执行 `docker compose up -d` 程序会按照下面的顺序构建,构建的容器名称,卷名称,网络名称都会带有服务名称的前缀
+
 ![构建结果](/images/docker_3.png)
+
 执行`docker compose dowm`会停止并删除 compose 内的所有容器,并删除所在网络,但会保留目录挂载和卷映射,方便下一次启动
 
 **`docker compose dowm` 的用法**
@@ -287,5 +289,7 @@ Options:
 ## dockerfile
 
 官方[文档地址](https://docs.docker.com/reference/dockerfile/)
+
 `docker commit` 是将容器制作成镜像,再使用`docker save`打包成文件
+
 `dockerfile`是直接使用脚本文件(相当于命令的集合),再使用`docker bulid`直接构建一个镜像
