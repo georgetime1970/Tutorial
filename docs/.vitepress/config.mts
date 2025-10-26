@@ -54,12 +54,14 @@ export default defineConfig({
     // 顶部导航栏
     nav: [
       { text: '主页', link: '/' },
-      { text: 'JavaScript基础', link: '/tutorial/JavaScript/basic/introduction' },
+      { text: 'JS基础', link: '/tutorial/JavaScript/basic/introduction' },
       { text: 'ES6基础', link: '/tutorial/ES6/intro' },
-      { text: 'TypeScript基础', link: '/tutorial/TypeScript/intro' },
-      { text: 'JavaScript笔记', link: '/tutorial/JavaScript_My/1_基础第一天' },
+      { text: 'TS基础', link: '/tutorial/TypeScript/intro' },
+      { text: 'JS笔记', link: '/tutorial/JavaScript_My/1_基础第一天' },
       { text: 'Vue手册', link: '/tutorial/Vue/1_vue简介' },
-      { text: '思想结晶', link: '/MyThink/思想核心' },
+      { text: 'Linux笔记', link: '/tutorial/Linux/note' },
+      { text: 'Docker笔记', link: '/tutorial/Docker/note' },
+      { text: '思考', link: '/MyThink/思想核心' },
     ],
 
     // 侧边栏是文档的主要导航块
@@ -425,7 +427,7 @@ export default defineConfig({
       // 思想结晶 侧边栏
       '/MyThink/': [
         {
-          text: '思想结晶',
+          text: '思考',
           collapsed: false,
           items: [
             { text: '思想核心', link: '/MyThink/思想核心' },
@@ -433,17 +435,6 @@ export default defineConfig({
             { text: '自身问题', link: '/MyThink/自身问题' },
             { text: '创业', link: '/MyThink/创业' },
             { text: '经济', link: '/MyThink/经济' },
-          ],
-        },
-        {
-          text: '家具思考',
-          collapsed: false,
-          items: [
-            { text: '家具行业思考', link: '/MyThink/家具思考/家具行业思考' },
-            { text: '家具定价', link: '/MyThink/家具思考/家具定价' },
-            { text: '消费规则', link: '/MyThink/家具思考/消费规则' },
-            { text: '洗脑标语', link: '/MyThink/家具思考/洗脑标语' },
-            { text: '短视频拍摄直播', link: '/MyThink/家具思考/短视频拍摄直播' },
           ],
         },
       ],
