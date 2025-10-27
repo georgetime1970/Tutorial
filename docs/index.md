@@ -37,14 +37,14 @@ hero:
     alt: George
 
 features:
-  - icon: 🚀
-    title: Vue3官网
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    link: https://cn.vuejs.org/
-  - icon: 🚀
-    title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - icon: 🚀
-    title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - icon: 🔔
+    title: 订阅管理
+    # details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    link: https://subscription.jiangyahan.com/
+  # - icon: 🚀
+  #   title: Feature B
+  #   details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  # - icon: 🚀
+  #   title: Feature C
+  #   details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
