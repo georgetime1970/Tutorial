@@ -36,7 +36,8 @@ npm run serve
 - 对 `TypeScript`、`JSX`、`CSS` 等支持开箱即用。
 - 真正的按需编译，不再等待整个应用编译完成。
 - `webpack`构建 与 `vite`构建对比图如下：
-  <img src="/images/1683167182037-71c78210-8217-4e7d-9a83-e463035efbbe.png" alt="webpack构建" title="webpack构建" style="zoom:20%;box-shadow:0 0 10px black" /> <img src="/images/1683167204081-582dc237-72bc-499e-9589-2cdfd452e62f.png" alt="vite构建" title="vite构建" style="zoom: 20%;box-shadow:0 0 10px black" />
+  ![vue3](./assets/1683167182037-71c78210-8217-4e7d-9a83-e463035efbbe.png)
+  ![vue3](./assets/1683167204081-582dc237-72bc-499e-9589-2cdfd452e62f.png)
 
 * 具体操作如下（点击查看[官方文档](https://cn.vuejs.org/guide/quick-start.html#creating-a-vue-application)）
 
@@ -92,9 +93,9 @@ export default {
 
 安装官方推荐的`vscode`插件：
 
-<img src="/images/volar.png" alt="Snipaste_2023-10-08_20-46-34" style="zoom:50%;" />
+![vue3](./assets/volar.png)
 
-<img src="/images/image-20231218085906380.png" alt="image-20231218085906380" style="zoom:42%;" />
+![vue3](./assets/image-20231218085906380.png)
 
 总结：
 

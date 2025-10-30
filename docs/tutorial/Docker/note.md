@@ -15,7 +15,7 @@
 - `镜像`: 一个模具,一个 docker 中不会有 2 个一模一样的镜像
 - `容器`: 使用镜像这个模具制作的东西,可以有很多功能一样的容器,但每个容器都有自己的属性
 
-![命令总结](/images/docker_1.png)
+![命令总结](./assets/docker_1.png)
 
 ### 镜像命令
 
@@ -214,7 +214,7 @@ compose [语法参考](https://docs.docker.com/reference/compose-file/)
 
 compose 结构
 
-![compose结构](/images/docker_2.png)
+![compose结构](./assets/docker_2.png)
 
 ```yaml
 name: myblog # 顶层元素,这里是服务的名称
@@ -264,7 +264,7 @@ volumes: # 顶层元素
 
 执行 `docker compose up -d` 程序会按照下面的顺序构建,构建的容器名称,卷名称,网络名称都会带有服务名称的前缀
 
-![构建结果](/images/docker_3.png)
+![构建结果](./assets/docker_3.png)
 
 执行`docker compose dowm`会停止并删除 compose 内的所有容器,并删除所在网络,但会保留目录挂载和卷映射,方便下一次启动
 
