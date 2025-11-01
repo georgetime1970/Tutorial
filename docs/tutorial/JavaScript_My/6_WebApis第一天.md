@@ -100,7 +100,7 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
 
 ```html
 <body>
-  <h3 class="title">查找元素类型节点</h3>
+  <h3 class="title" data-name="my-title">查找元素类型节点</h3>
   <p id="paragraph">从整个 DOM 树中查找 DOM 节点是学习 DOM 的第一个步骤。</p>
   <ul>
     <li>元素</li>
@@ -109,9 +109,11 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
     <li>元素</li>
   </ul>
   <script>
-    const p = document.querySelector('p') // 获取第一个p元素
-    const title = document.querySelector('.title') // 使用类获取元素
-    const paragraph = document.querySelector('#paragrraph') //使用id获取元素
+    const p = document.querySelector('p') // 使用标签,获取第一个p元素
+    const title = document.querySelector('.title') // 使用类,获取元素
+    const my_title = document.querySelector('[data-name="my-title"]') // 使用自定义属性,获取元素
+    const my_title = document.querySelector('[data-name=my-title]') // 使用自定义属性,获取元素(省略引号写法)
+    const paragraph = document.querySelector('#paragrraph') //使用id,获取元素
     const lis = document.querySelectorAll('li') // 获取所有元素(伪数组)
   </script>
 </body>

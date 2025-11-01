@@ -1,4 +1,4 @@
-# Web APIs - 第3天
+# Web APIs - 第 3 天
 
 > 进一步学习 事件进阶，实现更多交互的网页特效，结合事件流的特征优化事件执行的效率
 
@@ -30,15 +30,15 @@
   </div>
   <script>
     // 获取嵌套的3个节点
-    const outer = document.querySelector('.outer');
-    const inner = document.querySelector('.inner');
-    const child = document.querySelector('.child');
-		
+    const outer = document.querySelector('.outer')
+    const inner = document.querySelector('.inner')
+    const child = document.querySelector('.child')
+
     // html 元素添加事件
     document.documentElement.addEventListener('click', function () {
       console.log('html...')
     })
-		
+
     // body 元素添加事件
     document.body.addEventListener('click', function () {
       console.log('body...')
@@ -48,14 +48,14 @@
     outer.addEventListener('click', function () {
       console.log('outer...')
     })
-    
+
     // 中间的盒子添加事件
-    outer.addEventListener('click', function () {
+    inner.addEventListener('click', function () {
       console.log('inner...')
     })
-    
+
     // 内层的盒子添加事件
-    outer.addEventListener('click', function () {
+    child.addEventListener('click', function () {
       console.log('child...')
     })
   </script>
@@ -85,22 +85,30 @@
     const inner = document.querySelector('.inner')
 
     // 外层的盒子
-    outer.addEventListener('click', function () {
-      console.log('outer...')
-    }, true) // true 表示在捕获阶段执行事件
-    
+    outer.addEventListener(
+      'click',
+      function () {
+        console.log('outer...')
+      },
+      true
+    ) // true 表示在捕获阶段执行事件
+
     // 中间的盒子
-    outer.addEventListener('click', function () {
-      console.log('inner...')
-    }, true)
+    inner.addEventListener(
+      'click',
+      function () {
+        console.log('inner...')
+      },
+      true
+    )
   </script>
 </body>
 ```
 
 结论：
 
-1. `addEventListener` 第3个参数决定了事件是在捕获阶段触发还是在冒泡阶段触发
-2. `addEventListener` 第3个参数为  `true` 表示捕获阶段触发，`false` 表示冒泡阶段触发，默认值为 `false`
+1. `addEventListener` 第 3 个参数决定了事件是在捕获阶段触发还是在冒泡阶段触发
+2. `addEventListener` 第 3 个参数为 `true` 表示捕获阶段触发，`false` 表示冒泡阶段触发，默认值为 `false`
 3. 事件流只会在父子元素具有相同事件类型时才会产生影响
 4. 绝大部分场景都采用默认的冒泡模式（其中一个原因是早期 IE 不支持捕获）
 
@@ -149,11 +157,11 @@
 
 结论：事件对象中的 `ev.stopPropagation` 方法，专门用来阻止事件冒泡。
 
->鼠标经过事件：
+> 鼠标经过事件：
 >
->mouseover 和 mouseout 会有冒泡效果
+> `mouseover` 和 `mouseout` 会有冒泡效果(适用事件委托)
 >
->mouseenter  和 mouseleave   没有冒泡效果 (推荐)
+> `mouseenter` 和 `mouseleave` 没有冒泡效果 (推荐)
 
 ## 事件委托
 
@@ -164,9 +172,9 @@
 ```html
 <script>
   // 假设页面中有 10000 个 button 元素
-  const buttons = document.querySelectorAll('table button');
+  const buttons = document.querySelectorAll('table button')
 
-  for(let i = 0; i <= buttons.length; i++) {
+  for (let i = 0; i <= buttons.length; i++) {
     // 为 10000 个 button 元素添加了事件
     buttons.addEventListener('click', function () {
       // 省略具体执行逻辑...
@@ -180,12 +188,12 @@
 ```html
 <script>
   // 假设页面中有 10000 个 button 元素
-  let buttons = document.querySelectorAll('table button');
-  
+  let buttons = document.querySelectorAll('table button')
+
   // 假设上述的 10000 个 buttom 元素共同的祖先元素是 table
-  let parents = document.querySelector('table');
+  let parents = document.querySelector('table')
   parents.addEventListener('click', function () {
-    console.log('点击任意子元素都会触发事件...');
+    console.log('点击任意子元素都会触发事件...')
   })
 </script>
 ```
@@ -200,15 +208,20 @@
 <script>
   // 假设页面中有 10000 个 button 元素
   const buttons = document.querySelectorAll('table button')
-  
+
   // 假设上述的 10000 个 buttom 元素共同的祖先元素是 table
   const parents = document.querySelector('table')
   parents.addEventListener('click', function (ev) {
     // console.log(ev.target);
     // 只有 button 元素才会真正去执行逻辑
-    if(ev.target.tagName === 'BUTTON') {
+    if (ev.target.tagName === 'BUTTON') {
       // 执行的逻辑
     }
+
+    // 或者使用classList,判断是否包含btn类,或是否等于ev.target.classList === 'btn'
+    // if (ev.target.classList.contains('btn')) {
+    //   // 执行逻辑
+    // }
   })
 </script>
 ```
@@ -219,63 +232,59 @@
 
 ### 页面加载事件
 
-加载外部资源（如图片、外联CSS和JavaScript等）加载完毕时触发的事件
+外部资源（如图片、外联 CSS 和 JavaScript 等）加载完毕前/后触发的事件
 
-有些时候需要等页面资源全部处理完了做一些事情
+1. 监听页面所有资源加载完毕再执行:
 
-**事件名：load**
-
-监听页面所有资源加载完毕：
-
-~~~javascript
-window.addEventListener('load', function() {
-    // xxxxx
+```javascript
+window.addEventListener('load', function () {
+  // xxxxx
 })
-~~~
+```
+
+2. 初始的 HTML 文档被加载和解析完成之后, DOMContentLoaded 事件被触发,无需等待样式表/图像等完全加载
+
+```javascript
+document.addEventListener('DOMContentLoaded', () => {
+  // 执行逻辑
+})
+```
 
 ### 元素滚动事件
 
 滚动条在滚动的时候持续触发的事件
 
-~~~javascript
-window.addEventListener('scroll', function() {
-    // xxxxx
+属性`scrollTop` `scrollLeft`属性可读写 赋值用数字不带单位
+方法`scrollTo(x, y)` 滚动到指定位置 可写
+
+```javascript
+window.addEventListener('scroll', function () {
+  // 执行逻辑
+  window.scrollTop // 上部被卷去的距离
+  window.scrollLeft // 左侧被卷去的距离
+
+  // 获取 html 元素,要让页面滚动就用这个,配合offsetTop获得目标相对顶部距离
+  document.documentElement
 })
-~~~
+```
 
 ### 页面尺寸事件
 
-会在窗口尺寸改变的时候触发事件：
+会在窗口尺寸改变的时候触发事件
 
-~~~javascript
-window.addEventListener('resize', function() {
-    // xxxxx
+```javascript
+window.addEventListener('resize', function () {
+  // xxxxx
 })
-~~~
+```
 
 ## 元素尺寸与位置
 
-获取元素的自身宽高、包含元素自身设置的宽高、padding、border
+| 属性/方法                       | 说明                                                                                   |
+| ------------------------------- | -------------------------------------------------------------------------------------- |
+| `clientWidth` 和 `clientHeight` | 获取元素可见部分宽高(不含边框,margin, 滚动条等), 获取出来的是数值,方便计算             |
+| `offsetWidth` 和 `offsetHeight` | 获取元素的自身宽高、包含元素自身设置的宽高、padding、border, 获取出来的是数值,方便计算 |
+| `offsetLeft` 和 `offsetTop`     | 只读属性,获取元素距离自己定位父级元素的左/上距离, 获取出来的是数值,方便计算            |
+| `getBoundingClientRect()`       | 获取元素的大小及其相对于视口的位置                                                     |
 
-offsetWidth和offsetHeight  
-
-获取出来的是数值,方便计算
-
-注意: 获取的是可视宽高, 如果盒子是隐藏的,获取的结果是0
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+注意: 获取的是可视宽高, 如果盒子是隐藏的,获取的结果是 0
