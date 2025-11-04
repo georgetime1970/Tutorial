@@ -408,6 +408,7 @@ export default defineConfig({
           ],
         },
       ],
+
       // Linux笔记 侧边栏
       '/tutorial/Linux/': [
         {
@@ -415,16 +416,19 @@ export default defineConfig({
           items: [
             { text: 'Ubuntu桌面版配置', link: '/tutorial/Linux/ubuntu_configure' },
             { text: 'Linux基础', link: '/tutorial/Linux/note' },
+            { text: 'Git基础', link: '/tutorial/Linux/git_note' },
           ],
         },
       ],
-      // Linux笔记 侧边栏
+
+      // Docker笔记 侧边栏
       '/tutorial/Docker/': [
         {
           text: 'Docker笔记',
           items: [{ text: 'Docker基础', link: '/tutorial/Docker/note' }],
         },
       ],
+
       // 思想结晶 侧边栏
       '/MyThink/': [
         {
