@@ -99,64 +99,42 @@
 
 鼠标事件是指跟鼠标操作相关的事件，如单击、双击、移动等。
 
-1. `mouseenter` 监听鼠标是否移入 DOM 元素
-
-```html
-<body>
-  <h3>鼠标事件</h3>
-  <p>监听与鼠标相关的操作</p>
-  <hr />
-  <div class="box"></div>
-  <script>
-    // 需要事件监听的 DOM 元素
-    const box = document.querySelector('.box')
-
-    // 监听鼠标是移入当前 DOM 元素
-    box.addEventListener('mouseenter', function () {
-      // 修改文本内容
-      this.innerText = '鼠标移入了...'
-      // 修改光标的风格
-      this.style.cursor = 'move'
-    })
-  </script>
-</body>
-```
-
-1. `mouseleave` 监听鼠标是否移出 DOM 元素
-
-```html
-<body>
-  <h3>鼠标事件</h3>
-  <p>监听与鼠标相关的操作</p>
-  <hr />
-  <div class="box"></div>
-  <script>
-    // 需要事件监听的 DOM 元素
-    const box = document.querySelector('.box')
-
-    // 监听鼠标是移出当前 DOM 元素
-    box.addEventListener('mouseleave', function () {
-      // 修改文本内容
-      this.innerText = '鼠标移出了...'
-    })
-  </script>
-</body>
-```
+| 事件名       | 说明                      |
+| ------------ | ------------------------- |
+| `click`      | 单击鼠标触发              |
+| `dblclick`   | 双击鼠标触发              |
+| `mouseenter` | 监听鼠标是否移入 DOM 元素 |
+| `mouseleave` | 监听鼠标是否移出 DOM 元素 |
 
 ### 键盘事件
 
-`keydown` 键盘按下触发
-`keyup` 键盘抬起触发(常用)
+| 事件名    | 说明               |
+| --------- | ------------------ |
+| `keydown` | 键盘按下触发       |
+| `keyup`   | 键盘抬起触发(常用) |
 
 ### 焦点事件
 
-`focus` 获得焦点
+| 事件名  | 说明     |
+| ------- | -------- |
+| `focus` | 获得焦点 |
+| `blur`  | 失去焦点 |
 
-`blur` 失去焦点
+### 输入框事件
 
-### 文本框输入事件
+| 事件名  | 说明         |
+| ------- | ------------ |
+| `input` | 内容变化触发 |
 
-`input`
+### M 端事件
+
+触屏事件 `touch` 也叫触摸事件
+
+| 事件名       | 说明                            |
+| ------------ | ------------------------------- |
+| `touchstart` | 手指触摸到一个 DOM 元素时触发   |
+| `touchmove`  | 手指在一个 DOM 元素上滑动时触发 |
+| `touchend`   | 手指在一个 DOM 元素上移开时触发 |
 
 ## 事件对象
 
@@ -183,7 +161,7 @@
 </body>
 ```
 
-事件回调函数的【第 1 个参数】即所谓的事件对象，通常习惯性的将这个对数命名为 `event`、`ev` 、`e` 。
+事件回调函数的【第 1 个参数】即所谓的事件对象，通常习惯性的将这个对象命名为 `event`、`ev` 、`e` 。
 
 接下来简单看一下事件对象中包含了哪些有用的信息：
 

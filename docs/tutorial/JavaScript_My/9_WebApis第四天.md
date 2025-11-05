@@ -58,7 +58,7 @@ console.log(+new Date())
 console.log(Date.now())
 ```
 
-获取时间戳的方法，分别为 getTime 和 Date.now 和 +new Date()
+获取时间戳的方法，分别为 `getTime` 和 `Date.now` 和 `+new Date()`
 
 ## DOM 节点
 
@@ -75,41 +75,37 @@ console.log(Date.now())
 | 文本节点 | 所有的文本                |
 | 其他     | -                         |
 
+视觉记忆图（想象一棵树）：
+
+```bash
+<div id="box">               ← Element
+ ├─ "   "                    ← Text（空白）
+ ├─ <span>Hi</span>          ← Element
+ ├─ <!-- 注释 -->            ← Comment
+ └─ <p>OK</p>                ← Element
+```
+
 ### 查找节点
 
 DOM 树中的任意节点都不是孤立存在的，它们要么是父子关系，要么是兄弟关系，不仅如此，我们可以依据节点之间的关系查找节点。
 
+| 属性总结                    | 说明                                                     |
+| --------------------------- | -------------------------------------------------------- |
+| 父 `parentNode`             | 获取父节点，以相对位置查找节点，实际应用中非常灵活。     |
+| 父 `parentElement`          | 获取父元素节点, 99%情况用                                |
+| 子 `childNodes`             | 获取全部的子节点，回车换行会被认为是空白文本节点,伪数组  |
+| 子 `children`               | 只获取所有元素类型节点,伪数组                            |
+| 子 `childElementCount`      | 获取子元素数量                                           |
+| 兄 `previousSibling`        | 获取前一个节点，以相对位置查找节点，实际应用中非常灵活。 |
+| 兄 `nextSibling`            | 获取后一个节点，以相对位置查找节点，实际应用中非常灵活。 |
+| 兄 `previousElementSibling` | 上一个兄弟元素节点                                       |
+| 兄 `nextElementSibling`     | 下一个兄弟元素节点                                       |
+
+- 带 `Node` = 所有节点（含文本、注释）
+  带 `Element` = 仅标签节点（`<div>` `<span>` …）
+  没 `Element` → 肯定是 Node
+
 #### 父子关系
-
-```html
-<body>
-  <button class="btn1">所有的子节点</button>
-  <!-- 获取 ul 的子节点 -->
-  <ul>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript 基础</li>
-    <li>Web APIs</li>
-  </ul>
-  <script>
-    const btn1 = document.querySelector('.btn1')
-    btn1.addEventListener('click', function () {
-      // 父节点
-      const ul = document.querySelector('ul')
-
-      // 所有的子节点
-      console.log(ul.childNodes)
-      // 只包含元素子节点
-      console.log(ul.children)
-    })
-  </script>
-</body>
-```
-
-结论：
-
-- `childNodes` 获取全部的子节点，回车换行会被认为是空白文本节点,伪数组
-- `children` 只获取所有元素类型节点,伪数组
 
 ```html
 <body>
@@ -155,6 +151,36 @@ DOM 树中的任意节点都不是孤立存在的，它们要么是父子关系�
 
 结论：`parentNode` 获取父节点，以相对位置查找节点，实际应用中非常灵活。
 
+```html
+<body>
+  <button class="btn1">所有的子节点</button>
+  <!-- 获取 ul 的子节点 -->
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript 基础</li>
+    <li>Web APIs</li>
+  </ul>
+  <script>
+    const btn1 = document.querySelector('.btn1')
+    btn1.addEventListener('click', function () {
+      // 父节点
+      const ul = document.querySelector('ul')
+
+      // 所有的子节点
+      console.log(ul.childNodes)
+      // 只包含元素子节点
+      console.log(ul.children)
+    })
+  </script>
+</body>
+```
+
+结论：
+
+- `childNodes` 获取全部的子节点，回车换行会被认为是空白文本节点,伪数组
+- `children` 只获取所有元素类型节点,伪数组
+
 #### 兄弟关系
 
 ```html
@@ -190,6 +216,14 @@ DOM 树中的任意节点都不是孤立存在的，它们要么是父子关系�
 ### 插入节点
 
 在已有的 DOM 节点中插入新的 DOM 节点时，需要关注两个关键因素：首先要得到新的 DOM 节点，其次在哪个位置插入这个节点。
+
+| 方法总结                       | 说明                                                                  |
+| ------------------------------ | --------------------------------------------------------------------- |
+| `document.createElement(节点)` | 动态创建任意 DOM 节点                                                 |
+| `父.appendChild(节点)`         | 在末尾（结束标签前）插入节点                                          |
+| `父.append(节点)`              | 在末尾（结束标签前）插入多个节点,推荐                                 |
+| `父.insertBefore(节点, 位置)`  | 在父节点中任意子节点之前插入新节点                                    |
+| `cloneNode(布尔值)`            | true 复制节点的所有内容，false 只复制节点, 后面需要再插入节点才能显示 |
 
 如下代码演示：
 
@@ -279,6 +313,11 @@ DOM 树中的任意节点都不是孤立存在的，它们要么是父子关系�
 ### 删除节点
 
 删除现有的 DOM 节点，也需要关注两个因素：首先由父节点删除子节点，其次是要删除哪个子节点。
+
+| 方法总结               | 说明                           |
+| ---------------------- | ------------------------------ |
+| `自己.remove()`        | 删除节点,自己删除自己          |
+| `父.removeChild(节点)` | 删除节点,需要父亲删除,推荐使用 |
 
 ```html
 <body>
