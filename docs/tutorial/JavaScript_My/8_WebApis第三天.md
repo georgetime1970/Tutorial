@@ -114,6 +114,8 @@
 
 ### 阻止冒泡
 
+`e.stopPropagation()`
+
 阻止冒泡是指阻断事件的流动，保证事件只在当前元素被执行，而不再去影响到其对应的祖先元素。
 
 ```html
@@ -163,7 +165,7 @@
 >
 > `mouseenter` 和 `mouseleave` 没有冒泡效果 (推荐)
 
-### 阻止默认事件
+### 补充-阻止默认事件
 
 - `e.preventDefault()`
 
@@ -258,8 +260,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 滚动条在滚动的时候持续触发的事件
 
-属性`scrollTop` `scrollLeft`属性可读写 赋值用数字不带单位
-方法`scrollTo(x, y)` 滚动到指定位置 可写
+属性`scrollTop` `scrollLeft`: 获取或设置元素内容从其顶部边缘滚动的像素数,属性可读写 赋值用数字不带单位
+
+方法 `scrollTo(x, y)` 滚动到指定位置 可写
 
 ```javascript
 window.addEventListener('scroll', function () {
@@ -269,6 +272,10 @@ window.addEventListener('scroll', function () {
 
   // 获取 html 元素,要让页面滚动就用这个,配合offsetTop获得目标相对顶部距离
   document.documentElement
+  document.documentElement.scrollTop
+  document.documentElement.scrollLeft
+
+  window.scrollTo(0, 1000)
 })
 ```
 
@@ -286,9 +293,11 @@ window.addEventListener('resize', function () {
 
 | 属性/方法                       | 说明                                                                                   |
 | ------------------------------- | -------------------------------------------------------------------------------------- |
+| `scrollTop` 和 `scrollLeft`     | 获取或设置元素内容从其顶部/左部边缘滚动的像素数                                        |
+| `scrollTo(x, y)`                | 滚动到文档中的一组特定坐,等于`scroll()`方法标                                          |
 | `clientWidth` 和 `clientHeight` | 获取元素可见部分宽高(不含边框,margin, 滚动条等), 获取出来的是数值,方便计算             |
 | `offsetWidth` 和 `offsetHeight` | 获取元素的自身宽高、包含元素自身设置的宽高、padding、border, 获取出来的是数值,方便计算 |
 | `offsetLeft` 和 `offsetTop`     | 只读属性,获取元素距离自己定位父级元素的左/上距离, 获取出来的是数值,方便计算            |
 | `getBoundingClientRect()`       | 获取元素的大小及其相对于视口的位置                                                     |
 
-注意: 获取的是可视宽高, 如果盒子是隐藏的,获取的结果是 0
+注意: 获取的是元素可视宽高, 如果盒子是隐藏的,获取的结果是 0

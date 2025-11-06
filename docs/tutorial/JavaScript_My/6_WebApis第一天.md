@@ -34,9 +34,9 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
 
 上述的例子中当用户分分别点击【开始】或【结束】按钮后，通过右侧调试窗口可以观察到 html 标签的内容在不断的发生改变，这便是通过 DOM 实现的。
 
-### 概念
+## 概念
 
-#### DOM 树
+### DOM 树
 
 ```html
 <!DOCTYPE html>
@@ -58,7 +58,7 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
 
 ![dom](./assets/web-api.jpg)
 
-#### DOM 节点
+### DOM 节点
 
 节点是文档树的组成部分，**每一个节点都是一个 DOM 对象**，主要分为元素节点、属性节点、文本节点等。
 
@@ -68,7 +68,7 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
 4. 【根节点】特指 `html` 标签。
 5. 其它...
 
-#### document
+### document
 
 `document` 是 JavaScript 内置的专门用于 DOM 的对象，该对象包含了若干的属性和方法，`document` 是学习 DOM 的核心。
 
@@ -92,11 +92,22 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
 
 ## 获取 DOM 对象
 
-1. `querySelector` 满足条件的第一个元素
-2. `querySelectorAll` 满足条件的元素集合 返回伪数组
-3. 了解其他方式
-   1. `getElementById`
-   2. `getElementsByTagName`
+| 方法                 | 说明                          |
+| -------------------- | ----------------------------- |
+| `querySelector()`    | 满足条件的第一个元素          |
+| `querySelectorAll()` | 满足条件的元素集合 返回伪数组 |
+
+| 类型       | 获取方式                       |
+| ---------- | ------------------------------ |
+| 元素标签   | `querySelector('p')`           |
+| css 类     | `querySelector('.title')`      |
+| id         | `querySelector('#paragraph')`  |
+| 自定义属性 | `querySelector('[data-name]')` |
+
+了解其他方式
+
+1.  `getElementById`
+2.  `getElementsByTagName`
 
 ```html
 <body>
@@ -113,7 +124,7 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
     const title = document.querySelector('.title') // 使用类,获取元素
     const my_title = document.querySelector('[data-name="my-title"]') // 使用自定义属性,获取元素
     const my_title = document.querySelector('[data-name=my-title]') // 使用自定义属性,获取元素(省略引号写法)
-    const paragraph = document.querySelector('#paragrraph') //使用id,获取元素
+    const paragraph = document.querySelector('#paragraph') //使用id,获取元素
     const lis = document.querySelectorAll('li') // 获取所有元素(伪数组)
   </script>
 </body>
@@ -154,11 +165,13 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
 
 ## 操作元素属性
 
-有 3 种方式可以实现对属性的修改：
-
 ### 常用属性修改
 
-1. 直接能过属性名修改，最简洁的语法
+有 3 种方式可以实现对属性的修改：
+
+#### 1.直接对属性名修改
+
+1. 直接对属性名修改，最简洁的语法
 
 ```html
 <script>
@@ -171,9 +184,67 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
 </script>
 ```
 
-#### 控制样式属性
+2. 操作表单元素属性
 
-1. 应用【修改样式】，通过修改行内样式 `style` 属性，实现对样式的动态修改。
+表单很多情况，也需要修改属性，比如点击眼睛，可以看到密码，本质是把表单类型转换为文本框
+
+正常的有属性有取值的跟其他的标签属性没有任何区别
+
+获取:DOM 对象.属性名
+
+设置:DOM 对象.属性名= 新值
+
+```html
+<body>
+  <input type="text" value="请输入" />
+  <button disabled>按钮</button>
+  <input type="checkbox" name="" id="" class="agree" />
+  <script>
+    // 1. 获取元素
+    let input = document.querySelector('input')
+    // 2. 取值或者设置值  得到input里面的值可以用 value
+    // console.log(input.value)
+    input.value = '小米手机'
+    input.type = 'password'
+
+    // 2. 启用按钮
+    let btn = document.querySelector('button')
+    // disabled 不可用   =  false  这样可以让按钮启用
+    btn.disabled = false
+    // 3. 勾选复选框
+    let checkbox = document.querySelector('.agree')
+    checkbox.checked = false
+  </script>
+</body>
+```
+
+3. 自定义属性
+
+标准属性: 标签天生自带的属性 比如 class id title 等, 可以直接使用点语法操作比如： disabled、checked、selected
+
+**自定义属性：**
+
+在 html5 中推出来了专门的 data-自定义属性
+
+在标签上一律以 `data-` 开头
+
+在 DOM 对象上一律以 `dataset` 对象方式获取
+
+```html
+<body>
+  <div data-id="1">自定义属性</div>
+  <script>
+    // 1. 获取元素
+    let div = document.querySelector('div')
+    // 2. 获取自定义属性值
+    console.log(div.dataset.id)
+  </script>
+</body>
+```
+
+#### 2.控制样式属性
+
+应用【修改样式】，通过修改行内样式 `style` 属性，实现对样式的动态修改。
 
 通过元素节点获得的 `style` 属性本身的数据类型也是对象，如 `box.style.color`、`box.style.width` 分别用来获取元素节点 CSS 样式的 `color` 和 `width` 的值。
 
@@ -194,7 +265,30 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
 
 任何标签都有 `style` 属性，通过 `style` 属性可以动态更改网页标签的样式，如要遇到 `css` 属性中包含字符 `-` 时，要将 `-` 去掉并将其后面的字母改成大写，如 `background-color` 要写成 `box.style.backgroundColor`
 
-2. 操作类名 `className` 操作 CSS
+#### 3.setAttribute() 方法
+
+:
+
+要，请使用
+
+要，请使用
+
+| 方法                        | 说明                                                                                                      |
+| --------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `setAttribute(name, value)` | 设置指定元素上的某个属性值。如果属性已经存在，则更新该值；<br/>否则，使用指定的名称和值添加一个新的属性。 |
+| `getAttribute(name)`        | 获取某个属性当前的值                                                                                      |
+| `removeAttribute(name)`     | 删除某个属性                                                                                              |
+
+[参考](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/setAttribute)
+
+### 类的修改
+
+| 属性        | 说明                                                    |
+| ----------- | ------------------------------------------------------- |
+| `className` | 是使用新值换旧值, 如果需要添加一个类,需要保留之前的类名 |
+| `classList` | `add()`追加类;`remove()`删除类;`toggle`切换类           |
+
+1. 操作类名 `className` 操作 CSS
 
 如果修改的样式比较多，直接通过 style 属性修改比较繁琐，我们可以通过借助于 css 类名的形式。
 
@@ -229,7 +323,7 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
 >
 > 2.className 是使用新值换旧值, 如果需要添加一个类,需要保留之前的类名
 
-3. 通过 `classList` 操作类控制 CSS
+2. 通过 `classList` 操作类控制 CSS
 
 为了解决 className 容易覆盖以前的类名，我们可以通过 classList 方式追加和删除类名
 
@@ -274,65 +368,7 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
 </html>
 ```
 
-#### 操作表单元素属性
-
-表单很多情况，也需要修改属性，比如点击眼睛，可以看到密码，本质是把表单类型转换为文本框
-
-正常的有属性有取值的跟其他的标签属性没有任何区别
-
-获取:DOM 对象.属性名
-
-设置:DOM 对象.属性名= 新值
-
-```html
-<body>
-  <input type="text" value="请输入" />
-  <button disabled>按钮</button>
-  <input type="checkbox" name="" id="" class="agree" />
-  <script>
-    // 1. 获取元素
-    let input = document.querySelector('input')
-    // 2. 取值或者设置值  得到input里面的值可以用 value
-    // console.log(input.value)
-    input.value = '小米手机'
-    input.type = 'password'
-
-    // 2. 启用按钮
-    let btn = document.querySelector('button')
-    // disabled 不可用   =  false  这样可以让按钮启用
-    btn.disabled = false
-    // 3. 勾选复选框
-    let checkbox = document.querySelector('.agree')
-    checkbox.checked = false
-  </script>
-</body>
-```
-
-#### 自定义属性
-
-标准属性: 标签天生自带的属性 比如 class id title 等, 可以直接使用点语法操作比如： disabled、checked、selected
-
-**自定义属性：**
-
-在 html5 中推出来了专门的 data-自定义属性
-
-在标签上一律以 `data-` 开头
-
-在 DOM 对象上一律以 `dataset` 对象方式获取
-
-```html
-<body>
-  <div data-id="1">自定义属性</div>
-  <script>
-    // 1. 获取元素
-    let div = document.querySelector('div')
-    // 2. 获取自定义属性值
-    console.log(div.dataset.id)
-  </script>
-</body>
-```
-
-## 间歇函数
+## 补充-间歇函数
 
 > 知道间歇函数的作用，利用间歇函数创建定时任务。
 

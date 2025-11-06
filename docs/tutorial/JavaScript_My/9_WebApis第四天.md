@@ -5,61 +5,6 @@
 - 能够插入、删除和替换元素节点
 - 能够依据元素节点关系查找节点
 
-## 日期对象
-
-掌握 Date 日期对象的使用，动态获取当前计算机的时间。
-
-ECMAScript 中内置了获取系统时间的对象 Date，使用 Date 时与之前学习的内置对象 console 和 Math 不同，它需要借助 new 关键字才能使用。
-
-### 实例化
-
-```javascript
-// 1. 实例化
-// const date = new Date(); // 系统默认时间
-const date = new Date('2020-05-01') // 指定时间
-// date 变量即所谓的时间对象
-
-console.log(date) // Fri May 01 2020 08:00:00 GMT+0800 (中国标准时间)
-```
-
-### 实例方法
-
-```javascript
-// 1. 实例化
-const date = new Date()
-// 2. 调用时间对象方法
-// 通过方法分别获取年、月、日，时、分、秒
-const year = date.getFullYear() //  2020 (四位年份)
-const month = date.getMonth() //  04 (0 ~ 11) 月份少1
-```
-
-| 方法            | 说明                                     |
-| --------------- | ---------------------------------------- |
-| `getFullYear()` | 获取四位年份                             |
-| `getMonth()`    | 获取月份，取值为 0 ~ 11                  |
-| `getDate()`     | 获取月份中的每一天，不同月份取值也不相同 |
-| `getDay()`      | 获取星期，取值为 0 ~ 6                   |
-| `getHours()`    | 获取小时，取值为 0 ~ 23                  |
-| `getMinutes()`  | 获取分钟，取值为 0 ~ 59                  |
-| `getSeconds()`  | 获取秒，取值为 0 ~ 59                    |
-
-### 时间戳
-
-时间戳是指 1970 年 01 月 01 日 00 时 00 分 00 秒起至现在的总秒数或毫秒数，它是一种特殊的计量时间的方式。
-
-注：ECMAScript 中时间戳是以毫秒计的。
-
-```javascript
-// 1. 实例化
-const date = new Date()
-// 2. 3中发方式获取时间戳
-console.log(date.getTime())
-console.log(+new Date())
-console.log(Date.now())
-```
-
-获取时间戳的方法，分别为 `getTime` 和 `Date.now` 和 `+new Date()`
-
 ## DOM 节点
 
 > 掌握元素节点创建、复制、插入、删除等操作的方法，能够依据元素节点的结构关系查找节点
@@ -68,12 +13,13 @@ console.log(Date.now())
 
 ### 节点类型
 
-| 类型     | 说明                      |
-| -------- | ------------------------- |
-| 元素节点 | 比如 body div html 根节点 |
-| 属性节点 | 所有的属性,比如 href      |
-| 文本节点 | 所有的文本                |
-| 其他     | -                         |
+| 类型              | 说明                      |
+| ----------------- | ------------------------- |
+| 元素节点/标签节点 | 比如 body div html 根节点 |
+| 属性节点          | 所有的属性,比如 href      |
+| 文本节点          | 所有的文本                |
+| 注释节点          | 注释内容                  |
+| 其他              | -                         |
 
 视觉记忆图（想象一棵树）：
 
@@ -89,21 +35,23 @@ console.log(Date.now())
 
 DOM 树中的任意节点都不是孤立存在的，它们要么是父子关系，要么是兄弟关系，不仅如此，我们可以依据节点之间的关系查找节点。
 
-| 属性总结                    | 说明                                                     |
-| --------------------------- | -------------------------------------------------------- |
-| 父 `parentNode`             | 获取父节点，以相对位置查找节点，实际应用中非常灵活。     |
-| 父 `parentElement`          | 获取父元素节点, 99%情况用                                |
-| 子 `childNodes`             | 获取全部的子节点，回车换行会被认为是空白文本节点,伪数组  |
-| 子 `children`               | 只获取所有元素类型节点,伪数组                            |
-| 子 `childElementCount`      | 获取子元素数量                                           |
-| 兄 `previousSibling`        | 获取前一个节点，以相对位置查找节点，实际应用中非常灵活。 |
-| 兄 `nextSibling`            | 获取后一个节点，以相对位置查找节点，实际应用中非常灵活。 |
-| 兄 `previousElementSibling` | 上一个兄弟元素节点                                       |
-| 兄 `nextElementSibling`     | 下一个兄弟元素节点                                       |
+| 属性总结                    | 说明                                                  |
+| --------------------------- | ----------------------------------------------------- |
+| 父 `parentNode`             | 获取全部父节点                                        |
+| 父 `parentElement`          | 只获取父元素类型节点,推荐使用                         |
+| 子 `childNodes`             | 获取全部子节点，回车换行会被认为是空白文本节点,伪数组 |
+| 子 `children`               | 只获取所有子元素类型节点,伪数组                       |
+| 子 `childElementCount`      | 获取子元素类型节点数量                                |
+| 兄 `previousSibling`        | 获取前一个兄弟节点                                    |
+| 兄 `nextSibling`            | 获取后一个兄弟节点                                    |
+| 兄 `previousElementSibling` | 获取前一个兄弟元素节点                                |
+| 兄 `nextElementSibling`     | 获取后一个兄弟元素节点                                |
 
-- 带 `Node` = 所有节点（含文本、注释）
+- 小技巧
+
+  带 `Node` = 所有节点（含文本、注释）
+
   带 `Element` = 仅标签节点（`<div>` `<span>` …）
-  没 `Element` → 肯定是 Node
 
 #### 父子关系
 
@@ -219,7 +167,7 @@ DOM 树中的任意节点都不是孤立存在的，它们要么是父子关系�
 
 | 方法总结                       | 说明                                                                  |
 | ------------------------------ | --------------------------------------------------------------------- |
-| `document.createElement(节点)` | 动态创建任意 DOM 节点                                                 |
+| `document.createElement(元素)` | 动态创建任意 DOM 元素节点                                             |
 | `父.appendChild(节点)`         | 在末尾（结束标签前）插入节点                                          |
 | `父.append(节点)`              | 在末尾（结束标签前）插入多个节点,推荐                                 |
 | `父.insertBefore(节点, 位置)`  | 在父节点中任意子节点之前插入新节点                                    |
@@ -240,7 +188,7 @@ DOM 树中的任意节点都不是孤立存在的，它们要么是父子关系�
     // 点击按钮，在网页中插入节点
     const btn = document.querySelector('.btn')
     btn.addEventListener('click', function () {
-      // 1. 获得一个 DOM 元素节点
+      // 1. 创建一个 DOM 元素节点
       const p = document.createElement('p')
       p.innerText = '创建的新的p标签'
       p.className = 'info'
@@ -316,8 +264,8 @@ DOM 树中的任意节点都不是孤立存在的，它们要么是父子关系�
 
 | 方法总结               | 说明                           |
 | ---------------------- | ------------------------------ |
-| `自己.remove()`        | 删除节点,自己删除自己          |
-| `父.removeChild(节点)` | 删除节点,需要父亲删除,推荐使用 |
+| `自己.remove()`        | 删除节点,自己删除自己,推荐使用 |
+| `父.removeChild(节点)` | 删除节点,需要父亲删除          |
 
 ```html
 <body>
@@ -339,9 +287,65 @@ DOM 树中的任意节点都不是孤立存在的，它们要么是父子关系�
 
       // 删除节点
       ul.removeChild(lis[0])
+      lis[0].remove()
     })
   </script>
 </body>
 ```
 
-结论：`removeChild` 删除节点时一定是由父子关系。
+结论：`removeChild()` 删除节点时一定是父子关系。`remove()`不需要父亲
+
+## 补充-日期对象
+
+掌握 Date 日期对象的使用，动态获取当前计算机的时间。
+
+ECMAScript 中内置了获取系统时间的对象 Date，使用 Date 时与之前学习的内置对象 console 和 Math 不同，它需要借助 new 关键字才能使用。
+
+### 实例化
+
+```javascript
+// 1. 实例化
+// const date = new Date(); // 系统默认时间
+const date = new Date('2020-05-01') // 指定时间
+// date 变量即所谓的时间对象
+
+console.log(date) // Fri May 01 2020 08:00:00 GMT+0800 (中国标准时间)
+```
+
+### 实例方法
+
+```javascript
+// 1. 实例化
+const date = new Date()
+// 2. 调用时间对象方法
+// 通过方法分别获取年、月、日，时、分、秒
+const year = date.getFullYear() //  2020 (四位年份)
+const month = date.getMonth() //  04 (0 ~ 11) 月份少1
+```
+
+| 方法            | 说明                    |
+| --------------- | ----------------------- |
+| `getFullYear()` | 获取四位年份            |
+| `getMonth()`    | 获取月份，取值为 0 ~ 11 |
+| `getDate()`     | 一个月中的哪一日 1 ~ 31 |
+| `getDay()`      | 获取星期，取值为 0 ~ 6  |
+| `getHours()`    | 获取小时，取值为 0 ~ 23 |
+| `getMinutes()`  | 获取分钟，取值为 0 ~ 59 |
+| `getSeconds()`  | 获取秒，取值为 0 ~ 59   |
+
+### 时间戳
+
+时间戳是指 1970 年 01 月 01 日 00 时 00 分 00 秒起至现在的总秒数或毫秒数，它是一种特殊的计量时间的方式。
+
+注：ECMAScript 中时间戳是以毫秒计的。
+
+```javascript
+// 1. 实例化
+const date = new Date()
+// 2. 3中发方式获取时间戳
+console.log(date.getTime())
+console.log(+new Date())
+console.log(Date.now())
+```
+
+获取时间戳的方法，分别为 `getTime` 和 `Date.now` 和 `+new Date()`
