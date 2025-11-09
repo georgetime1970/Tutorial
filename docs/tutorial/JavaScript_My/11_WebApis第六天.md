@@ -1,10 +1,30 @@
 # Web APIs - 第 6 天笔记
 
-> 目标：能够利用正则表达式完成小兔鲜注册页面的表单验证，具备常见的表单验证能力
+## 一览表
 
-- 正则表达式
-- 综合案例
-- 阶段案例
+| 符号      | 作用                                                                                     |
+| --------- | ---------------------------------------------------------------------------------------- |
+| `^`       | 表示匹配行首的文本(以谁开始)                                                             |
+| `$`       | 表示匹配行尾的文本(以谁结束)                                                             |
+| `^`...`$` | ^ 和 $ 在一起，表示必须是精确匹配                                                        |
+| `\|`      | 或                                                                                       |
+| `[abc]`   | 匹配包含的单个字符。也就是只有 `a \|\| b \|\| c` 这三个单字符返回 true，可以理解为多选 1 |
+| `[a-z]`   | 连字符。来指定字符范围。`[a-z]`表示 a 到 z 26 个英文字母                                 |
+| `[^abc]`  | 取反符。`[^a-z]`匹配除了小写字母以外的字符                                               |
+| `*`       | 重复零次或更多次                                                                         |
+| `+`       | 重复一次或更多次                                                                         |
+| `?`       | 重复零次或一次                                                                           |
+| `{n}`     | 重复 n 次                                                                                |
+| `{n,}`    | 重复 n 次或更多次                                                                        |
+| `{n,m}`   | 重复 n 到 m 次                                                                           |
+| `\d`      | 匹配 0-9 之间的任一数字，相当于`[0-9]`                                                   |
+| `\D`      | 匹配所有 0-9 以外的字符，相当于`[^0-9]`                                                  |
+| `\w`      | 匹配任意的字母、数字和下划线，相当于`[A-Za-z0-9_]`                                       |
+| `\W`      | 除所有字母、数字和下划线以外的字符，相当于`[^A-Za-z0-9_]`                                |
+| `\s`      | 四配空格(包括换行符、制表符、空格符等)，相等于`[\t\r\n\vf]`                              |
+| `\S`      | 匹配非空格的字符，相当于`[^it\r\nivf]`                                                   |
+| `i`修饰符 | 正则匹配时字母不区分大小写                                                               |
+| `g`修饰符 | 匹配所有满足正则表达式的结果                                                             |
 
 ## 正则表达式
 
@@ -30,22 +50,23 @@
 
 2. 使用正则
 
-   - `test()方法` 用来查看正则表达式与指定的字符串是否匹配
-   - 如果正则表达式与指定的字符串匹配 ，返回`true`，否则`false`
+   - `test()`方法用来查看正则表达式与指定的字符串是否匹配
+
+     如果正则表达式与指定的字符串匹配 ，返回`true`，否则`false`
+
+   - `exec()`方法用于检索(查找)符合规则的字符串,找到返回数组,否则为 null
 
 ```html
-<body>
-  <script>
-    // 正则表达式的基本使用
-    const str = 'web前端开发'
-    // 1. 定义规则
-    const reg = /web/
+<script>
+  // 正则表达式的基本使用
+  const str = 'web前端开发'
+  // 1. 定义规则
+  const reg = /web/
 
-    // 2. 使用正则  test()
-    console.log(reg.test(str)) // true  如果符合规则匹配上则返回true
-    console.log(reg.test('java开发')) // false  如果不符合规则匹配上则返回 false
-  </script>
-</body>
+  // 2. 使用正则  test()
+  console.log(reg.test(str)) // true  如果符合规则匹配上则返回true
+  console.log(reg.test('java开发')) // false  如果不符合规则匹配上则返回 false
+</script>
 ```
 
 ### 元字符
@@ -56,7 +77,7 @@
 - 普通字符只能够匹配字符串中与它们相同的字符。
 - 比如，规定用户只能输入英文 26 个英文字母，普通字符的话 /[abcdefghijklmnopqrstuvwxyz]/
 
-2. **元字符(特殊字符）**
+2. **元字符(特殊字符）:**
 
 - 是一些具有特殊含义的字符，可以极大提高了灵活性和强大的匹配功能。
 - 比如，规定用户只能输入英文 26 个英文字母，换成元字符写法： /[a-z]/
@@ -162,53 +183,6 @@
 </body>
 ```
 
-#### 范围
-
-表示字符的范围，定义的规则限定在某个范围，比如只能是英文字母，或者数字等等，用表示范围
-
-![67608029616](assets/1676080296168.png)
-
-```html
-<body>
-  <script>
-    // 元字符之范围  []
-    // 1. [abc] 匹配包含的单个字符， 多选1
-    const reg1 = /^[abc]$/
-    console.log(reg1.test('a')) // true
-    console.log(reg1.test('b')) // true
-    console.log(reg1.test('c')) // true
-    console.log(reg1.test('d')) // false
-    console.log(reg1.test('ab')) // false
-
-    // 2. [a-z] 连字符 单个
-    const reg2 = /^[a-z]$/
-    console.log(reg2.test('a')) // true
-    console.log(reg2.test('p')) // true
-    console.log(reg2.test('0')) // false
-    console.log(reg2.test('A')) // false
-    // 想要包含小写字母，大写字母 ，数字
-    const reg3 = /^[a-zA-Z0-9]$/
-    console.log(reg3.test('B')) // true
-    console.log(reg3.test('b')) // true
-    console.log(reg3.test(9)) // true
-    console.log(reg3.test(',')) // flase
-
-    // 用户名可以输入英文字母，数字，可以加下划线，要求 6~16位
-    const reg4 = /^[a-zA-Z0-9_]{6,16}$/
-    console.log(reg4.test('abcd1')) // false
-    console.log(reg4.test('abcd12')) // true
-    console.log(reg4.test('ABcd12')) // true
-    console.log(reg4.test('ABcd12_')) // true
-
-    // 3. [^a-z] 取反符
-    const reg5 = /^[^a-z]$/
-    console.log(reg5.test('a')) // false
-    console.log(reg5.test('A')) // true
-    console.log(reg5.test(8)) // true
-  </script>
-</body>
-```
-
 #### 字符类
 
 某些常见模式的简写方式，区分字母和数字
@@ -216,6 +190,51 @@
 ![67608035363](assets/1676080353637.png)
 
 ![67608037232](assets/1676080372325.png)
+
+##### 范围
+
+表示字符的范围，定义的规则限定在某个范围，比如只能是英文字母，或者数字等等，用表示范围
+
+![67608029616](assets/1676080296168.png)
+
+```html
+<script>
+  // 元字符之范围  []
+  // 1. [abc] 匹配包含的单个字符， 多选1
+  const reg1 = /^[abc]$/
+  console.log(reg1.test('a')) // true
+  console.log(reg1.test('b')) // true
+  console.log(reg1.test('c')) // true
+  console.log(reg1.test('d')) // false
+  console.log(reg1.test('ab')) // false
+
+  // 2. [a-z] 连字符 单个
+  const reg2 = /^[a-z]$/
+  console.log(reg2.test('a')) // true
+  console.log(reg2.test('p')) // true
+  console.log(reg2.test('0')) // false
+  console.log(reg2.test('A')) // false
+  // 想要包含小写字母，大写字母 ，数字
+  const reg3 = /^[a-zA-Z0-9]$/
+  console.log(reg3.test('B')) // true
+  console.log(reg3.test('b')) // true
+  console.log(reg3.test(9)) // true
+  console.log(reg3.test(',')) // flase
+
+  // 用户名可以输入英文字母，数字，可以加下划线，要求 6~16位
+  const reg4 = /^[a-zA-Z0-9_]{6,16}$/
+  console.log(reg4.test('abcd1')) // false
+  console.log(reg4.test('abcd12')) // true
+  console.log(reg4.test('ABcd12')) // true
+  console.log(reg4.test('ABcd12_')) // true
+
+  // 3. [^a-z] 取反符
+  const reg5 = /^[^a-z]$/
+  console.log(reg5.test('a')) // false
+  console.log(reg5.test('A')) // true
+  console.log(reg5.test(8)) // true
+</script>
+```
 
 ## 替换和修饰符
 
@@ -252,20 +271,26 @@ replace 替换方法，可以完成字符的替换
     // 2. 修饰符 g 全部替换
     const strEnd = str.replace(/前端/g, 'web')
     console.log(strEnd)
+
+    // 3. 一起用,修饰符 g i 全部替换,并且不管大小写
+    const strEnd = str.replace(/前端/gi, 'web')
+    console.log(strEnd)
   </script>
 </body>
 ```
 
-## 正则插件
+## 扩展
+
+### 正则插件
 
 ![67608054863](assets/1676080548639.png)
 
-## change 事件
+### change 事件
 
 给 input 注册 change 事件，值被修改并且失去焦点后触发
 
-## 判断是否有类
+### 判断是否有类
 
 ![67608061879](assets/1676080618794.png)
 
-元素.classList.contains() 看看有没有包含某个类，如果有则返回 true，么有则返回 false
+`元素.classList.contains()` 看看有没有包含某个类，如果有则返回 true，没有则返回 false
