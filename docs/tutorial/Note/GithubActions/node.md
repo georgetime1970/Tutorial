@@ -63,6 +63,9 @@ on:
       - main # 当推送到 main 分支时触发,main 或 master，根据你的主分支名来写
   workflow_dispatch: # 允许手动触发
 
+permissions: # 权限
+  contents: write
+
 # 任务定义（jobs:）,相当于任务合集
 jobs:
   deploy: # jobs的名称
