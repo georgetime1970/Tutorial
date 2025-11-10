@@ -427,7 +427,7 @@ export default defineConfig({
           items: [
             { text: 'Git', link: '/tutorial/Note/Git/note' },
             { text: 'Docker', link: '/tutorial/Note/Docker/note' },
-            { text: 'Github Actions', link: '/tutorial/Ntde/GithubActions/note' },
+            { text: 'Github Actions', link: '/tutorial/Note/GithubActions/note' },
           ],
         },
       ],
