@@ -24,7 +24,7 @@ hero:
       text: Vue3手册
       link: /tutorial/Vue/1_vue简介
     - theme: alt
-      text: Linux笔记
+      text: Linux
       link: /tutorial/Linux/note.md
     - theme: alt
       text: Git

@@ -119,20 +119,20 @@ jobs:
 
 ## 🧰 七、几个优秀的官方 Actions
 
-| 名称                                                                                    | 功能                            |
-| --------------------------------------------------------------------------------------- | ------------------------------- |
-| [`actions/checkout` ](https://github.com/actions/checkout/tree/v5/)                     | 拉取代码                        |
-| [`actions/setup-node`](https://github.com/actions/setup-node/tree/v6/)                  | 安装 Node.js 环境               |
-| `actions/upload-artifact`                                                               | 上传构建产物                    |
-| `actions/cache`                                                                         | 缓存依赖                        |
-| [`peaceiris/actions-gh-pages`] (https://github.com/peaceiris/actions-gh-pages/tree/v4/) | 自动部署静态站点到 GitHub Pages |
+| 名称                                                                                   | 功能                            |
+| -------------------------------------------------------------------------------------- | ------------------------------- |
+| [`actions/checkout` ](https://github.com/actions/checkout/tree/v5/)                    | 拉取代码                        |
+| [`actions/setup-node`](https://github.com/actions/setup-node/tree/v6/)                 | 安装 Node.js 环境               |
+| `actions/upload-artifact`                                                              | 上传构建产物                    |
+| `actions/cache`                                                                        | 缓存依赖                        |
+| [`peaceiris/actions-gh-pages`](https://github.com/peaceiris/actions-gh-pages/tree/v4/) | 自动部署静态站点到 GitHub Pages |
 
 ## 🎯 八、推荐学习路线
 
 如果你要系统学 GitHub Actions，这样安排最合适 👇
 
 1. **官方文档入门**
-   🔗 [https://docs.github.com/en/actions](https://docs.github.com/en/actions)
+   🔗 [https://docs.github.com/zh/actions](https://docs.github.com/zh/actions)
 
 2. **看示例项目**
    搜索关键字 `path:.github/workflows` 就能找到别人仓库的配置模板。
