@@ -27,8 +27,14 @@ hero:
       text: Linux笔记
       link: /tutorial/Linux/note.md
     - theme: alt
-      text: Docker笔记
-      link: /tutorial/Docker/note.md
+      text: Git
+      link: /tutorial/Note/Git/note.md
+    - theme: alt
+      text: Docker
+      link: /tutorial/Note/Docker/note.md
+    - theme: alt
+      text: Actions
+      link: /tutorial/Note/Github_Actions/note.md
     - theme: alt
       text: 思想结晶
       link: /MyThink/思想核心

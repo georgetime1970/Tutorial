@@ -61,7 +61,7 @@ export default defineConfig({
       { text: 'JS笔记', link: '/tutorial/JavaScript_My/1_基础第一天' },
       { text: 'Vue手册', link: '/tutorial/Vue/1_vue简介' },
       { text: 'Linux笔记', link: '/tutorial/Linux/note' },
-      { text: '笔记', link: '/tutorial/Docker/note' },
+      { text: '笔记', link: '/tutorial/Note/Git/note' },
       { text: '思考', link: '/MyThink/思想核心' },
     ],
 
@@ -420,15 +420,15 @@ export default defineConfig({
         },
       ],
 
-      // 复合笔记 侧边栏
+      // 基础笔记 侧边栏
       '/tutorial/Node/': [
         {
-          text: 'GIt笔记',
-          items: [{ text: 'Git基础', link: '/tutorial/Node/Git/note' }],
-        },
-        {
-          text: 'Docker笔记',
-          items: [{ text: 'Docker基础', link: '/tutorial/Node/Docker/note' }],
+          text: '基础笔记',
+          items: [
+            { text: 'Git', link: '/tutorial/Node/Git/note' },
+            { text: 'Docker', link: '/tutorial/Node/Docker/note' },
+            { text: 'Github Actions', link: '/tutorial/Node/Github_Actions/note' },
+          ],
         },
       ],
 
