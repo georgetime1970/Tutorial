@@ -18,8 +18,6 @@ GitHub 就会自动启动一台虚拟机（运行环境），在上面**执行�
 - 自动部署到服务器或 Cloudflare；
 - 自动打包发布到 npm、Docker Hub、Pages 等。
 
----
-
 ## 🚀 二、它能做什么？
 
 举几个最常见的用途 👇
@@ -33,8 +31,6 @@ GitHub 就会自动启动一台虚拟机（运行环境），在上面**执行�
 | **自动化脚本任务** | 定时执行爬虫、同步仓库、备份数据、发送邮件等                                                 |
 | **跨平台构建**     | 比如自动打包成 Windows/macOS/Linux 的可执行文件                                              |
 
----
-
 ## 📁 三、文件结构与位置
 
 GitHub Actions 的配置文件是 **YAML 文件**（后缀 `.yml` 或 `.yaml`），放在你的仓库目录下：
@@ -46,8 +42,6 @@ GitHub Actions 的配置文件是 **YAML 文件**（后缀 `.yml` 或 `.yaml`）
 ```
 
 每个 `.yml` 文件对应一个工作流（workflow），可以有多个。
-
----
 
 ## 🧠 四、基本语法结构
 
@@ -101,8 +95,6 @@ jobs:
           cname: tutorial.jiangyahan.com # 如果没有自定义域名去掉这一行
 ```
 
----
-
 ## 🧩 五、核心概念解释
 
 | 概念                    | 说明                                                     |
@@ -114,20 +106,16 @@ jobs:
 | **action（动作）**      | 可重用的命令模块（如 `actions/checkout`）                |
 | **secrets（机密变量）** | 存放敏感信息的安全变量（例如 API 密钥）                  |
 
----
-
 ## 📘 六、常见语法元素
 
-| 元素                 | 示例                        | 含义                |
-| -------------------- | --------------------------- | ------------------- |
-| `uses:`              | `uses: actions/checkout@v4` | 使用现成的动作      |
-| `run:`               | `run: npm run build`        | 直接运行 shell 命令 |
-| `env:`               | `env: NODE_ENV: production` | 设置环境变量        |
-| `with:`              | `with: node-version: 20`    | 给动作传入参数      |
-| `${{ secrets.KEY }}` | 引用机密变量                |                     |
-| `${{ github.ref }}`  | 内置变量（例如分支名）      |                     |
-
----
+| 元素                     | 示例                        | 含义                |
+| ------------------------ | --------------------------- | ------------------- |
+| `uses:`                  | `uses: actions/checkout@v4` | 使用现成的动作      |
+| `run:`                   | `run: npm run build`        | 直接运行 shell 命令 |
+| `env:`                   | `env: NODE_ENV: production` | 设置环境变量        |
+| `with:`                  | `with: node-version: 20`    | 给动作传入参数      |
+| `${{` `secrets.KEY` `}}` | 引用机密变量                |                     |
+| `${{` `github.ref` `}}`  | 内置变量（例如分支名）      |                     |
 
 ## 🧰 七、几个优秀的官方 Actions
 
@@ -138,8 +126,6 @@ jobs:
 | `actions/upload-artifact`    | 上传构建产物                    |
 | `actions/cache`              | 缓存依赖                        |
 | `peaceiris/actions-gh-pages` | 自动部署静态站点到 GitHub Pages |
-
----
 
 ## 🎯 八、推荐学习路线
 
