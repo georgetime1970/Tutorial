@@ -34,7 +34,7 @@ hero:
       link: /tutorial/Note/Docker/note.md
     - theme: alt
       text: Actions
-      link: /tutorial/Note/Github_Actions/note.md
+      link: /tutorial/Note/GithubActions/note.md
     - theme: alt
       text: 思想结晶
       link: /MyThink/思想核心

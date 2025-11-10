@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: 🧱 Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: 18
+          node-version: 24
 
       - name: 📦 Install dependencies
         run: npm install
@@ -24,8 +24,9 @@ jobs:
         run: npm run build
 
       - name: 🚀 Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          # publish_branch: gh-pages # default: gh-pages 设置要用作 GitHub Pages 分支的分支名称。默认值为 gh-pages。
           publish_dir: ./docs/.vitepress/dist
-          cname: tutorial.jiangyahan.com # 如果有自定义域名的话，去掉这一行如果没有
+          cname: tutorial.jiangyahan.com # 如果没有自定义域名去掉这一行

@@ -421,13 +421,13 @@ export default defineConfig({
       ],
 
       // 基础笔记 侧边栏
-      '/tutorial/Node/': [
+      '/tutorial/Note/': [
         {
           text: '基础笔记',
           items: [
-            { text: 'Git', link: '/tutorial/Node/Git/note' },
-            { text: 'Docker', link: '/tutorial/Node/Docker/note' },
-            { text: 'Github Actions', link: '/tutorial/Node/Github_Actions/note' },
+            { text: 'Git', link: '/tutorial/Note/Git/note' },
+            { text: 'Docker', link: '/tutorial/Note/Docker/note' },
+            { text: 'Github Actions', link: '/tutorial/Ntde/GithubActions/note' },
           ],
         },
       ],
