@@ -31,26 +31,6 @@ JavaScript 的组成
 
 ![67604743636](assets/1676047436362.png)
 
-## 定时器-延迟函数
-
-JavaScript 内置的一个用来让代码延迟执行的函数，叫 setTimeout
-
-**语法：**
-
-```JavaScript
-setTimeout(回调函数, 延迟时间)
-```
-
-setTimeout 仅仅只执行一次，所以可以理解为就是把一段代码延迟执行, 平时省略 window
-
-间歇函数 setInterval : 每隔一段时间就执行一次， , 平时省略 window
-
-清除延时函数：
-
-```JavaScript
-clearTimeout(timerId)
-```
-
 > 注意点
 >
 > 1.  延时函数需要等待,所以后面的代码先执行
@@ -212,7 +192,7 @@ history 对象一般在实际开发中比较少用，但是会在一些 OA 办�
 </script>
 ```
 
-### sessionStorage（了解）
+### sessionStorage
 
 特性：
 
@@ -273,7 +253,7 @@ history 对象一般在实际开发中比较少用，但是会在一些 OA 办�
 </script>
 ```
 
-## 补充-数组方法
+## 扩展
 
 ### 数组 map 方法
 
@@ -314,4 +294,24 @@ history 对象一般在实际开发中比较少用，但是会在一些 OA 办�
   console.log(newArr.join('')) //redbluepink
   console.log(newArr.join('|')) //red|blue|pink
 </script>
+```
+
+### 定时器-延迟函数
+
+JavaScript 内置的一个用来让代码延迟执行的函数，叫 setTimeout
+
+**语法：**
+
+```JavaScript
+setTimeout(回调函数, 延迟时间)
+```
+
+setTimeout 仅仅只执行一次，所以可以理解为就是把一段代码延迟执行, 平时省略 window
+
+间歇函数 setInterval : 每隔一段时间就执行一次， , 平时省略 window
+
+清除延时函数：
+
+```JavaScript
+clearTimeout(timerId)
 ```

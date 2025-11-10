@@ -169,9 +169,9 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
 
 有 3 种方式可以实现对属性的修改：
 
-#### 1.直接对属性名修改
+#### 1.直接对属性修改
 
-1. 直接对属性名修改，最简洁的语法
+1. 直接对属性修改，最简洁的语法
 
 ```html
 <script>
@@ -267,19 +267,13 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
 
 #### 3.setAttribute() 方法
 
-:
-
-要，请使用
-
-要，请使用
-
 | 方法                        | 说明                                                                                                      |
 | --------------------------- | --------------------------------------------------------------------------------------------------------- |
 | `setAttribute(name, value)` | 设置指定元素上的某个属性值。如果属性已经存在，则更新该值；<br/>否则，使用指定的名称和值添加一个新的属性。 |
 | `getAttribute(name)`        | 获取某个属性当前的值                                                                                      |
 | `removeAttribute(name)`     | 删除某个属性                                                                                              |
 
-[参考](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/setAttribute)
+[setAttribute() 方法 参考](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/setAttribute)
 
 ### 类的修改
 
@@ -368,7 +362,26 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
 </html>
 ```
 
-## 补充-间歇函数
+## 扩展
+
+### 判断是否有某个类
+
+| 方法                        | 说明                                                      |
+| --------------------------- | --------------------------------------------------------- |
+| `元素.classList.contains()` | 元素有没有包含某个类，如果有则返回 true，没有则返回 false |
+
+```js
+// 添加类名
+元素.classList.add('类名')
+// 删除类名
+元素.classList.remove('类名')
+// 切换类名
+元素.classList.toggle('类名')
+// 判断是否包含某个类名 有返回true，没有返回false
+元素.classList.contains('类名')
+```
+
+### 间歇函数
 
 > 知道间歇函数的作用，利用间歇函数创建定时任务。
 

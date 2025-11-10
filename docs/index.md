@@ -41,10 +41,8 @@ features:
     title: 订阅管理
     # details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
     link: https://subscription.jiangyahan.com/
-  # - icon: 🚀
-  #   title: Feature B
-  #   details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  # - icon: 🚀
-  #   title: Feature C
-  #   details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - icon: ⌨️
+    title: 打字游戏
+    # details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    link: https://typing.jiangyahan.com/
 ---
