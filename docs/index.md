@@ -51,4 +51,8 @@ features:
     title: 打字游戏
     # details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
     link: https://typing.jiangyahan.com/
+  - icon: 🆎
+    title: IPA音标
+    # details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    link: https://ipa.jiangyahan.com/
 ---
