@@ -17,6 +17,10 @@ export default defineConfig({
       lazyLoading: true,
     },
   },
+  // 站点地图
+  sitemap: {
+    hostname: 'https://tutorial.jiangyahan.com',
+  },
   // 主题级选项
   themeConfig: {
     // 导航栏上显示的 Logo，位于站点标题前。
@@ -342,6 +346,26 @@ export default defineConfig({
             { text: '注释指令', link: '/tutorial/TypeScript/comment' },
             { text: 'tsconfig.json 文件', link: '/tutorial/TypeScript/tsconfig_json' },
             { text: 'tsc 命令', link: '/tutorial/TypeScript/tsc' },
+          ],
+        },
+      ],
+
+      // Html笔记 侧边栏
+      '/tutorial/Html/': [
+        {
+          text: 'Html笔记',
+          items: [{ text: '基础', link: '/tutorial/Html/html' }],
+        },
+      ],
+      // Css笔记 侧边栏
+      '/tutorial/Css/': [
+        {
+          text: 'Css笔记',
+          items: [
+            { text: '基础', link: '/tutorial/Css/base' },
+            { text: '选择器', link: '/tutorial/Css/selectors' },
+            { text: '属性', link: '/tutorial/Css/property' },
+            { text: '布局', link: '/tutorial/Css/layout' },
           ],
         },
       ],

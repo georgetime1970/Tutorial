@@ -9,19 +9,25 @@ hero:
   tagline: Perfection is a trap.
   actions:
     - theme: brand
-      text: JavaScript基础
+      text: JS基础
       link: /tutorial/JavaScript/basic/introduction
     - theme: alt
       text: ES6基础
       link: /tutorial/ES6/intro
     - theme: alt
-      text: TypeScript基础
+      text: TS基础
       link: /tutorial/TypeScript/intro
     - theme: alt
-      text: JavaScript笔记
+      text: HTML笔记
+      link: /tutorial/Html/html
+    - theme: alt
+      text: CSS笔记
+      link: /tutorial/Css/base
+    - theme: alt
+      text: JS笔记
       link: /tutorial/JavaScript_My/1_基础第一天
     - theme: alt
-      text: Vue3手册
+      text: Vue3笔记
       link: /tutorial/Vue/1_vue简介
     - theme: alt
       text: Linux
@@ -36,7 +42,7 @@ hero:
       text: Actions
       link: /tutorial/Note/GithubActions/note.md
     - theme: alt
-      text: 思想结晶
+      text: 思考
       link: /MyThink/思想核心
   image:
     src: /assets/will.png
