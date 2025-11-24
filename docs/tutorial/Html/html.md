@@ -88,10 +88,10 @@
 |                                  | `stroke-dashoffset`                      | 调整虚线与间隔的起始位置                       | `stroke-dashoffset: 100`                                                    |
 | **响应式 SVG**                   | `width/height: 100%` + `viewBox`         | 让内联 SVG 自适应容器                          | `<svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">`             |
 |                                  | `aspect-ratio`（CSS 新属性）             | 控制外部 SVG 背景图比例                        | `aspect-ratio: 1/1;`                                                        |
-| **SVG 滤镜（filter）**           | `filter: url(#id)`                       | 引用 <filter> 原始滤镜                         | `filter: url(#gooey);`                                                      |
+| **SVG 滤镜（filter）**           | `filter: url(#id)`                       | 引用 `<filter>` 原始滤镜                       | `filter: url(#gooey);`                                                      |
 |                                  | CSS 原生 filter 替代                     | drop-shadow、blur、brightness 等               | `filter: brightness(1.2) contrast(1.5);`                                    |
 | **最佳实践**                     | 优先使用内联 SVG                         | 才能被 CSS 完全控制颜色、动画                  | 推荐用于图标系统                                                            |
-|                                  | 能用 CSS 实现的尽量不用 SVG filter       | 性能更好                                       | 例如 drop-shadow 代替 <feDropShadow>                                        |
+|                                  | 能用 CSS 实现的尽量不用 SVG filter       | 性能更好                                       | 例如 drop-shadow 代替 `<feDropShadow>`                                      |
 |                                  | 外部 SVG 引用时加 #svgView(viewBox(...)) | 强制指定 viewBox，避免闪烁                     | `url('icon.svg#svgView(viewBox(0 0 24 24))')`                               |
 |                                  | data URI 编码时注意转义                  | 特别是 # 号要写成 %23                          | `url("data:image/svg+xml,%3Csvg ...%3E%3C/svg%3E")`                         |
 
@@ -145,7 +145,7 @@
 </video>
 ```
 
-- `<track>` 用来加载 `.vtt` 字幕文件
+- `<track>` 用来加载 `.vtt`
 
 ## 音频标签
 

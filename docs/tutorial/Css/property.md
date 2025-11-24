@@ -234,24 +234,24 @@ color: #ff998866; /* 可简为：#f986 */
 
 ## 列表属性
 
-| 属性                | 取值示例                                                                     | 作用说明                                                           | 浏览器支持情况                                  | 是否为较新特性（Level 3/4） |
-| ------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------------------------- | --------------------------- |
-| list-style-type     | disc, circle, square, decimal, lower-roman, none, symbols(cyclic "★" "☆") 等 | 设置列表项标记的类型（圆点、数字、罗马数字、自定义符号等）         | 所有现代浏览器                                  | 基础属性                    |
-| list-style-image    | url('star.svg'), none                                                        | 用图片代替默认标记                                                 | 所有现代浏览器                                  | 基础属性                    |
-| list-style-position | inside, outside                                                              | 标记相对于内容框的位置（在外还是缩进在内容内）                     | 所有现代浏览器                                  | 基础属性                    |
-| list-style          | `<'list-style-type'>` `<'list-style-position'>` `<'list-style-image'>`       | 上面三个属性的简写,没有顺序要求                                    | 所有现代浏览器                                  | 基础属性                    |
-| marker-side         | match-parent（草案）                                                         | 控制 ::marker 在双向文本中的对齐方向（解决 RTL 语言问题）          | Chrome 118+, Safari 17+, Firefox 122+           | Level 3 新增                |
-| system              | cyclic, symbolic, alphabetic, numeric, additive, fixed                       | 高级计数系统（用于 counter-style 规则）                            | 大部分现代浏览器                                | Level 3                     |
-| symbols             | symbols(cyclic "○" "●")                                                      | 与 @counter-style 一起使用，定义自定义标记序列                     | 大部分现代浏览器                                | Level 3                     |
-| additive-symbols    | 10 "X", 5 "V", 1 "I"                                                         | 定义加法计数系统（如罗马数字）                                     | 大部分现代浏览器                                | Level 3                     |
-| suffix / prefix     | suffix: "．"                                                                 | 在自定义计数器样式中定义前后缀/前缀                                | 大部分现代浏览器                                | Level 3                     |
-| counter-increment   | chapter 1, section                                                           | 自定义递增计数器（常配合 counter() 或 counters() 使用）            | 所有浏览器                                      | 基础属性                    |
-| counter-reset       | chapter 0, section -1                                                        | 重置计数器                                                         | 所有浏览器                                      | 基础属性                    |
-| counter-set         | section 5                                                                    | 直接设置计数器的值（不依赖递增）                                   | Chrome 87+, Safari 14+, Firefox 68+             | Level 3 新增                |
-| content             | content: counter(chapter) ". "                                               | 常用于 ::before / ::after / ::marker 生成编号                      | 所有浏览器                                      | 基础属性                    |
-| ::marker            | ::marker { color: red; font-size: 1.5em; }                                   | 伪元素，直接样式化列表标记（推荐替代老旧的 list-style 样式化方式） | Chrome 86+, Safari 12.1+, Firefox 84+, Edge 86+ | Level 3 重点推广            |
-| display             | list-item                                                                    | 让任意元素变成列表项（会自动生成 ::marker）                        | 所有浏览器                                      | 基础属性                    |
-| @counter-style      | @counter-style circled-digits { system: cyclic; symbols: ①②③④⑤⑥⑦⑧⑨⑩; }       | 自定义一套完整的自定义计数器样式规则（最强大的新特性）             | Chrome 91+, Safari 17+, Firefox 112+            | Level 3 核心新特性          |
+| 属性                | 取值示例                                                                       | 作用说明                                                           | 浏览器支持情况                                  | 是否为较新特性（Level 3/4） |
+| ------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------ | ----------------------------------------------- | --------------------------- |
+| list-style-type     | disc, circle, square, decimal, lower-roman, none, `symbols(cyclic "★" "☆")` 等 | 设置列表项标记的类型（圆点、数字、罗马数字、自定义符号等）         | 所有现代浏览器                                  | 基础属性                    |
+| list-style-image    | url('star.svg'), none                                                          | 用图片代替默认标记                                                 | 所有现代浏览器                                  | 基础属性                    |
+| list-style-position | inside, outside                                                                | 标记相对于内容框的位置（在外还是缩进在内容内）                     | 所有现代浏览器                                  | 基础属性                    |
+| list-style          | `<'list-style-type'>` `<'list-style-position'>` `<'list-style-image'>`         | 上面三个属性的简写,没有顺序要求                                    | 所有现代浏览器                                  | 基础属性                    |
+| marker-side         | match-parent（草案）                                                           | 控制 `::marker` 在双向文本中的对齐方向（解决 RTL 语言问题）        | Chrome 118+, Safari 17+, Firefox 122+           | Level 3 新增                |
+| system              | cyclic, symbolic, alphabetic, numeric, additive, fixed                         | 高级计数系统（用于 counter-style 规则）                            | 大部分现代浏览器                                | Level 3                     |
+| symbols             | `symbols(cyclic "○" "●")`                                                      | 与 @counter-style 一起使用，定义自定义标记序列                     | 大部分现代浏览器                                | Level 3                     |
+| additive-symbols    | 10 "X", 5 "V", 1 "I"                                                           | 定义加法计数系统（如罗马数字）                                     | 大部分现代浏览器                                | Level 3                     |
+| suffix / prefix     | suffix: "．"                                                                   | 在自定义计数器样式中定义前后缀/前缀                                | 大部分现代浏览器                                | Level 3                     |
+| counter-increment   | chapter 1, section                                                             | 自定义递增计数器（常配合 counter() 或 counters() 使用）            | 所有浏览器                                      | 基础属性                    |
+| counter-reset       | chapter 0, section -1                                                          | 重置计数器                                                         | 所有浏览器                                      | 基础属性                    |
+| counter-set         | section 5                                                                      | 直接设置计数器的值（不依赖递增）                                   | Chrome 87+, Safari 14+, Firefox 68+             | Level 3 新增                |
+| content             | content: counter(chapter) ". "                                                 | 常用于 `::before` / `::after` / `::marker` 生成编号                | 所有浏览器                                      | 基础属性                    |
+| `::marker`          | `::marker { color: red; font-size: 1.5em; }`                                   | 伪元素，直接样式化列表标记（推荐替代老旧的 list-style 样式化方式） | Chrome 86+, Safari 12.1+, Firefox 84+, Edge 86+ | Level 3 重点推广            |
+| display             | list-item                                                                      | 让任意元素变成列表项（会自动生成 `::marker`）                      | 所有浏览器                                      | 基础属性                    |
+| @counter-style      | `@counter-style circled-digits { system: cyclic; symbols: ①②③④⑤⑥⑦⑧⑨⑩;` }       | 自定义一套完整的自定义计数器样式规则（最强大的新特性）             | Chrome 91+, Safari 17+, Firefox 112+            | Level 3 核心新特性          |
 
 ### 写法示例
 
@@ -278,7 +278,7 @@ ol.custom {
 ### 总结
 
 - 传统属性（list-style-type/image/position）仍然是主流。
-- ::marker 伪元素 + @counter-style 是目前最强大、最现代的列表样式化方式（2023–2025 年各大浏览器已基本全部支持）。
+- `::marker` 伪元素 + @counter-style 是目前最强大、最现代的列表样式化方式（2023–2025 年各大浏览器已基本全部支持）。
 - counter-set、marker-side 等是 Level 3 中新增的较小但实用属性。
 
 ## 表格属性
@@ -409,7 +409,7 @@ filter: blur(5px) brightness(1.2) contrast(120%) grayscale(30%);
 
 | 属性                         | 含义                            | 可取值示例                                                                                               | 默认值       | 备注                                                             |
 | ---------------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------ | ---------------------------------------------------------------- |
-| `transition-property`        | 指定应用过渡效果的 CSS 属性名称 | `width`, `background-color`, `transform`, `all`, `none`                                                  | `all`        | 多个用逗号分隔，最常用 `all`                                     |
+| `transition-property`        | 指定应用过渡效果的 CSS 属性名称 | `width`,`height `, `background-color`, `transform`, `all`, `none`                                        | `all`        | 多个用逗号分隔，最常用 `all`                                     |
 | `transition-duration`        | 过渡效果需要多久完成            | `0s`, `2s`, `500ms`, `1.5s`                                                                              | 0s           | 必须设置才有过渡效果，多个时按顺序对应 property                  |
 | `transition-timing-function` | 过渡的运动曲线（速度变化方式）  | `ease`, `linear`, `ease-in`, `ease-out`, `ease-in-out`, `cubic-bezier(0.1,0.7,1.0,0.1)`, `steps(4, end)` | `ease`       | 常用 `ease-out` 更自然，也可自定义贝塞尔曲线                     |
 | `transition-delay`           | 延迟多久后开始过渡              | `0s`, `0.3s`, `-1s`（负值表示从中间开始）                                                                | 0s           | 多个时按顺序对应                                                 |
@@ -783,33 +783,3 @@ transform: translate3d(100px, 200px, 50px) scale3d(1.2, 1.2, 1.2);
 | 视口中部才开始动画     | `animation-timeline: view(); animation-range: 100px 300px;`                                                | 距离视口顶部 100px 开始，到 300px 结束 |
 | 卡片逐个出现（超丝滑） | `animation: slideUp 0.8s forwards; animation-timeline: view(block); animation-range: cover 10% cover 90%;` | 每张卡片自己控制进度，错位感极强       |
 | 进度条随页面滚动增长   | `animation: grow linear forwards; animation-timeline: scroll(root block);`                                 | 常用于“阅读进度条”                     |
-
-## 常见属性
-
-### object-fit
-
-| 值             | 描述                                                                                                        |
-| -------------- | ----------------------------------------------------------------------------------------------------------- |
-| **fill**       | 默认，不保证保持原有的比例，内容拉伸填充整个内容容器。                                                      |
-| **contain**    | 保持原有尺寸比例。内容被缩放。                                                                              |
-| **cover**      | 保持原有尺寸比例。但部分内容可能被剪切。常用                                                                |
-| **none**       | 保留原有元素内容的长度和宽度，也就是说内容不会被重置。                                                      |
-| **scale-down** | 保持原有尺寸比例。内容的尺寸与 none 或 contain 中的一个相同，取决于它们两个之间谁得到的对象尺寸会更小一些。 |
-| **initial**    | 设置为默认值，                                                                                              |
-| **inherit**    | 从该元素的父元素继承属性。                                                                                  |
-
-### object-position
-
-| 值       | 描述                                                                                       |
-| -------- | ------------------------------------------------------------------------------------------ |
-| position | 指定 image 或 video 在容器中的位置。第一个值为 x 坐标位置的值，第二个值为 y 坐标位置的值。 |
-| initial  | 设置为默认值，                                                                             |
-| inherit  | 从该元素的父元素继承属性。                                                                 |
-
-```css
-/* position 的表示的方式有： */
-object-position: 50% 50%;
-object-position: right top;
-object-position: left bottom;
-object-position: 250px 125px;
-```

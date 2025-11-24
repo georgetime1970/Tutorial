@@ -2,6 +2,11 @@
 
 ## Flex 布局
 
+- 采用 Flex 布局的元素，称为 Flex 容器（flex container），简称"容器"。
+- 容器的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称"项目"
+
+[Flex 布局参考](https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+
 ### 容器属性
 
 显示为 flex 的父元素
@@ -70,9 +75,15 @@
 
 ## Grid 布局
 
+- 容器: 开启 gird 布局的元素,也就是承载网格的元素
+- 网格: 创建的 gird 网格本身
+- 项目: 网格中的每一个单元格,也是容器的子元素
+
+[Grid 布局参考](https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html)
+
 ### 容器属性
 
-在 .grid-container 上设置
+在 开启 gird 布局的元素上设置
 
 | 属性                      | 正确取值示例                                                     | 作用说明                                                |
 | ------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------- |
@@ -92,11 +103,6 @@
 | **justify-content**       | start / center / space-between 等                                | 整个网格在主轴方向的整体对齐（网格总宽 < 容器宽时生效） |
 | **align-content**         | start / center / space-between 等                                | 整个网格在交叉轴方向的整体对齐                          |
 | **place-content**         | center / start end 等                                            | align-content justify-content 简写                      |
-
-- `repeat()`: 接受两个参数，第一个参数是重复的次数，第二个参数是所要重复的值
-- `repeat(auto-fill, 100px);`: 容器的大小不确定,不指定具体的次数,使用自动填充
-- `repeat(auto-fill, 1fr 2fr);`: 自动填充,并且两列的宽度分别为 1fr 和 2fr，就表示后者是前者的两倍
-- `repeat(auto-fill, minmax(10px, 100px))`: `minmax`表示长度就在这个范围之中。它接受两个参数，分别为最小值和最大值,可以使用`fr`
 
 ### 项目属性
 
@@ -161,6 +167,15 @@
 | 自动适应                   | `repeat(auto-fit, 轨道尺寸)`            | 尽量塞满容器，但会把多余空间平分给已有轨道（轨道会拉伸，不会留白） | `repeat(auto-fit, minmax(200px, 1fr))`          | 容器宽 750px → 生成 3 个轨道，每个约 250px（拉伸填满）    |
 | 结合命名线使用             | `repeat(3, [col-start] 1fr [col-end])`  | 可以给重复的轨道批量起名字                                         | `grid-template-columns: repeat(12, [col] 1fr);` | 生成 12 列网格，第 n 列可写 `grid-column: col 3 / col 7;` |
 
+- `repeat()`: 接受两个参数，第一个参数是重复的次数，第二个参数是所要重复的值
+- `repeat(2, 1fr);`: 重复 2 次,并且两行/列的宽/高度为 1fr
+- `repeat(2, 1fr 2fr);`: 重复 2 次,并且重复的两行/列的宽/高度分别为 1fr 和 2fr，就表示后者是前者的两倍
+- `repeat(auto-fill, 100px);`: 容器的大小不确定,不指定具体的次数,使用自动填充,重复的行/列的宽/高度为 100px
+- `repeat(auto-fill, auto);`: 自动填充,由内容决定单元格的大小
+- `repeat(auto-fill, minmax(10px, 100px))`: `minmax`表示长度就在这个范围之中。它接受两个参数，分别为最小值和最大值,可以使用`fr`
+- `repeat(auto-fill, minmax(auto, 1fr))`: 自动填充,由内容决定单元格的大小,可以拉伸并填满剩余空间
+- `repeat(auto-fill, minmax(100px, 1fr))`: 设置最小宽/高度,然后自动填充行/列数,常用
+
 - `auto-fill` 与 `auto-fit` 区别:
   `auto-fill`：多轨道，保持卡片固定宽度，多余空间留白
   `auto-fit`：少轨道，卡片拉伸填满整行
@@ -177,3 +192,54 @@ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 /* 3. 响应式卡片布局 （留空白）*/
 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 ```
+
+## 多列布局
+
+常用于新闻,图片的瀑布流效果
+
+| 属性                               | 取值示例                         | 作用说明                                         | 常用值/注意事项                                 |
+| ---------------------------------- | -------------------------------- | ------------------------------------------------ | ----------------------------------------------- |
+| **column-count**                   | 3 / auto                         | 指定列数                                         | 整数值，auto 表示由其他属性决定                 |
+| **column-width**                   | 200px / 15em / auto              | 建议的单列理想宽度（浏览器会尽量接近这个值）     | 常与 column-count 一起使用                      |
+| **columns**                        | 200px 3 / 12em                   | column-width 和 column-count 的简写              | 先写宽度再写数量，或只写一个                    |
+| **column-gap**                     | 40px / 2em / normal              | 列与列之间的间距                                 | normal 通常等于 1em                             |
+| **column-rule-width**              | 1px / medium / thin              | 分割线宽度                                       | -                                               |
+| **column-rule-style**              | dotted / dashed / solid / groove | 分割线样式                                       | -                                               |
+| **column-rule-color**              | #333 / rgba(0,0,0,0.2)           | 分割线颜色                                       | -                                               |
+| **column-rule**                    | 2px solid #ff0000                | 列分割线的简写（宽度 + 样式 + 颜色）             | 与 border 写法完全一致                          |
+| **column-fill**                    | balance / auto                   | 内容如何在列中分配高度                           | balance（默认）：尽量等高<br>auto：按顺序填满   |
+| **column-span**                    | none / all                       | 元素是否跨所有列                                 | 常用于标题 `<h2 style="column-span: all">`      |
+| **break-inside**                   | avoid / auto                     | 避免元素在列中间被强行断开（常用于图片、表格等） | 推荐加：`img`, `table { break-inside: avoid; }` |
+| **break-before** / **break-after** | column / avoid-column            | 控制元素前后是否强制换列                         | 常用于需要单独占一列的元素                      |
+| **widows** / **orphans**           | 2                                | 控制列顶部/底部最底部的寡行数（排版专业控制）    | 一般不需要手动设置                              |
+
+### 写法示例
+
+```css
+.article {
+  column-count: 3; /* 固定3列 */
+  column-width: 220px; /* 每列理想宽度，至少220px */
+  column-gap: 40px; /* 列间距 */
+  column-rule: 1px solid #eee; /* 分割线 */
+  column-fill: balance; /* 等高显示 */
+}
+
+.title {
+  column-span: all; /* 标题跨所有列 */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* 防止图片、代码块被中间打断 */
+img,
+pre,
+table,
+figure {
+  break-inside: avoid; /* 关键属性！ */
+}
+```
+
+## 总结
+
+- Flex 布局属于一维布局,默认一行排列,需要强制换行
+- Grid 布局属于二维布局,默认可以换行
