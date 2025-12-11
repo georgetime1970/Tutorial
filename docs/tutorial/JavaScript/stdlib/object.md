@@ -56,7 +56,7 @@ obj instanceof Object // true
 
 `instanceof`运算符用来验证，一个对象是否为指定的构造函数的实例。`obj instanceof Object`返回`true`，就表示`obj`对象是`Object`的实例。
 
-如果参数是原始类型的值，`Object`方法将其转为对应的包装对象的实例（参见《原始类型的包装对象》一章）。
+如果参数是原始类型的值，`Object`方法将其转为对应的包装对象的实例（参见《包装对象》一章）。
 
 ```javascript
 var obj = Object(1);
@@ -156,7 +156,7 @@ var obj = {
 Object.getOwnPropertyNames(obj) // ["p1", "p2"]
 ```
 
-对于一般的对象来说，`Object.keys()`和`Object.getOwnPropertyNames()`返回的结果是一样的。只有涉及不可枚举属性时，才会有不一样的结果。`Object.keys`方法只返回可枚举的属性（详见《对象属性的描述对象》一章），`Object.getOwnPropertyNames`方法还返回不可枚举的属性名。
+对于一般的对象来说，`Object.keys()`和`Object.getOwnPropertyNames()`返回的结果是一样的。只有涉及不可枚举属性时，才会有不一样的结果。`Object.keys`方法只返回可枚举的属性（详见《属性描述对象》一章），`Object.getOwnPropertyNames`方法还返回不可枚举的属性名。
 
 ```javascript
 var a = ['Hello', 'World'];
@@ -231,7 +231,7 @@ obj.valueOf() === obj // true
 
 上面代码比较`obj.valueOf()`与`obj`本身，两者是一样的。
 
-`valueOf`方法的主要用途是，JavaScript 自动类型转换时会默认调用这个方法（详见《数据类型转换》一章）。
+`valueOf`方法的主要用途是，JavaScript 自动类型转换时会默认调用这个方法（详见《数据类型的转换》一章）。
 
 ```javascript
 var obj = new Object();

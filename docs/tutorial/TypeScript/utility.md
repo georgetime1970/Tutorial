@@ -125,7 +125,7 @@ type Exclude<T, U> = T extends U ? never : T;
 
 上面代码中，等号右边的部分，表示先判断`T`是否兼容`U`，如果是的就返回`never`类型，否则返回当前类型`T`。由于`never`类型是任何其他类型的子类型，它跟其他类型组成联合类型时，可以直接将`never`类型从联合类型中“消掉”，因此`Exclude<T, U>`就相当于删除兼容的类型，剩下不兼容的类型。
 
-## `Extract<Type, Union>`
+## `Extract<UnionType, Union>`
 
 `Extract<UnionType, Union>`用来从联合类型`UnionType`之中，提取指定类型`Union`，组成一个新类型返回。它与`Exclude<T, U>`正好相反。
 
@@ -277,7 +277,7 @@ type Omit<T, K extends keyof any>
 `OmitThisParameter<Type>`从函数类型中移除 this 参数。
 
 ```typescript
-function toHex(this: Number) {
+function toHex(this: number) {
   return this.toString(16);
 }
 
@@ -412,7 +412,7 @@ type T3 = Pick<A, 'x'|'y'>;  // { x: number; y: number }
 
 上面示例中，`Pick<Type, Keys>`会从对象类型`A`里面挑出指定的键名，组成一个新的对象类型。
 
-指定的键名`Keys`必须是对象键名`Type`里面已经存在的键名，否则会报错。
+指定的键名`Keys`必须是对象类型`Type`里面已经存在的键名，否则会报错。
 
 ```typescript
 interface A {

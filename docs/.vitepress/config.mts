@@ -281,6 +281,7 @@ export default defineConfig({
             { text: 'ArrayBuffer', link: '/tutorial/ES6/arraybuffer' },
             { text: '最新提案', link: '/tutorial/ES6/proposals' },
             { text: 'Decorator', link: '/tutorial/ES6/decorator' },
+            { text: 'Temporal', link: '/tutorial/ES6/temporal' },
             { text: '参考链接', link: '/tutorial/ES6/reference' },
           ],
         },

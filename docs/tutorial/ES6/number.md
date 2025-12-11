@@ -652,6 +652,21 @@ Math.hypot(-3);          // 3
 
 如果参数不是数值，`Math.hypot`方法会将其转为数值。只要有一个参数无法转为数值，就会返回 NaN。
 
+### Math.f16round()
+
+ES2025 新增了 Math.f16round() 方法，返回最接近输入值的16位半精度浮点数。
+
+```javascript
+Math.f16round(5) // 5
+Math.f16round(5.05) // 5.05078125
+```
+
+16位浮点数共使用16个二进制位，其中指数使用5位，符号位使用1位，精度使用10位，因此可以表示 ±65,504 范围内的值，精度可以到达 1/1024。如果一个数超出了值的范围，则该方法返回 infinity。
+
+```javascript
+Math.f16round(100000) // Infinity
+```
+
 ### 对数方法
 
 ES6 新增了 4 个对数相关方法。
@@ -869,11 +884,10 @@ BigInt 继承了 Object 对象的两个实例方法。
 
 - `BigInt.prototype.toLocaleString()`
 
-此外，还提供了三个静态方法。
+此外，还提供了两个静态方法。
 
 - `BigInt.asUintN(width, BigInt)`： 给定的 BigInt 转为 0 到 2<sup>width</sup> - 1 之间对应的值。
 - `BigInt.asIntN(width, BigInt)`：给定的 BigInt 转为 -2<sup>width - 1</sup> 到 2<sup>width - 1</sup> - 1 之间对应的值。
-- `BigInt.parseInt(string[, radix])`：近似于`Number.parseInt()`，将一个字符串转换成指定进制的 BigInt。
 
 ```javascript
 const max = 2n ** (64n - 1n) - 1n;
@@ -898,18 +912,6 @@ BigInt.asUintN(32, max) // 4294967295n
 ```
 
 上面代码中，`max`是一个64位的 BigInt，如果转为32位，前面的32位都会被舍弃。
-
-下面是`BigInt.parseInt()`的例子。
-
-```javascript
-// Number.parseInt() 与 BigInt.parseInt() 的对比
-Number.parseInt('9007199254740993', 10)
-// 9007199254740992
-BigInt.parseInt('9007199254740993', 10)
-// 9007199254740993n
-```
-
-上面代码中，由于有效数字超出了最大限度，`Number.parseInt`方法返回的结果是不精确的，而`BigInt.parseInt`方法正确返回了对应的 BigInt。
 
 对于二进制数组，BigInt 新增了两个类型`BigUint64Array`和`BigInt64Array`，这两种数据类型返回的都是64位 BigInt。`DataView`对象的实例方法`DataView.prototype.getBigInt64()`和`DataView.prototype.getBigUint64()`，返回的也是 BigInt。
 

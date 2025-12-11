@@ -582,6 +582,14 @@ matchObj.groups.as // undefined
 
 上面代码中，具名组`as`没有找到匹配，那么`matchObj.groups.as`属性值就是`undefined`，并且`as`这个键名在`groups`是始终存在的。
 
+如果使用`|`运算符，给出两种可选方案，那么同样名称的组匹配，可以使用两次。其他情况，同一个名字的组匹配都只能出现一次。
+
+```javascript
+const RE = /(?<chars>a+)|(?<chars>b+)/v;
+```
+
+上面示例中，具名组匹配`<chars>`在`|`前后使用了两次。
+
 ### 解构赋值和替换
 
 有了具名组匹配以后，可以使用解构赋值直接从匹配结果上为变量赋值。
@@ -765,4 +773,71 @@ for (const match of string.matchAll(regex)) {
 // 转为数组的方法二
 Array.from(string.matchAll(regex))
 ```
+
+## RegExp.escape()
+
+ES2025 添加了 RegExp.escape() 方法，它用来对字符串转义，使其可以安全地用于正则表达式。
+
+```javascript
+RegExp.escape('(*)')
+// '\\(\\*\\)'
+```
+
+上面示例中，原始字符串的三个字符`(`、`*`、`)`在正则表达式都有特殊含义，RegExp.escape() 可以对它们进行转义。
+
+注意，转义以后，每个特殊字符之前都加上了两个反斜杠。这是因为当该字符串用于正则表达式，字符串的转义机制会将两个反斜杠先转义成一个反斜杆，即`\\(`变成`\(`，从而正好用于正则表达式。
+
+没有特殊含义的字符，不会被转义。
+
+```javascript
+RegExp.escape('_abc123')
+// '_abc123'
+```
+
+该方法的经典用途是搜索和替换文本。
+
+```javascript
+function replacePlainText(str, searchText, replace) {
+  const searchRegExp = new RegExp(
+    RegExp.escape(searchText),
+    'gu'
+  );
+  return str.replace(searchRegExp, replace)
+}
+```
+
+上面示例中，RegExp.escape() 先对用户输入的关键词进行转义，然后就可以将其当作正则表达式处理。
+
+## 组匹配修饰符
+
+ES2025 为组匹配添加了修饰符（inline flags），即修饰符只对正则表达式的一部分生效，对其他部分不生效。
+
+目前，组匹配只能使用下面三个修饰符。
+
+- i：忽略大小写
+- m：多行模式，即 ^ 和 $ 对每一行都生效。
+- s：dotAll 模式，即 . 可以匹配任何字符，包含每一行的终止符。
+
+```javascript
+/^x(?i:HELLO)x$/.test('xHELLOx')
+// true
+
+/^x(?i:HELLO)x$/.test('xhellox')
+// true
+```
+
+上面示例中，`(?i:HELLO)`表示 i 修饰符只用于组匹配`(HELLO)`，即`HELLO`不区分大小写。
+
+`(?flag:pattern)`是打开组匹配修饰符的写法，而`(?-flat:pattern)`是关闭组匹配修饰符的写法。
+
+```javascript
+/^x(?-i:HELLO)x$/i.test('xHELLOx')
+// true
+```
+
+上面示例中，整个正则表达式带有 i 修饰符，表示区分大小写，但是其中有一部分不需要区分，可以就可以使用`(?-i:HELLO)`对 HELLO 关闭区分大小写。
+
+如果需要对组匹配打开某些修饰符，同时关闭另一些修饰符，可以写成`(?flag-flag:pattern)`。同一个修饰符不能既打开，同时又关闭。
+
+另外，如果不带有修复符，那么`(?:pattern)`就是非捕获组匹配。
 
