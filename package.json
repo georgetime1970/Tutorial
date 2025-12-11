@@ -1,10 +1,15 @@
 {
-  "devDependencies": {
-    "vitepress": "^1.6.4"
-  },
+  "name": "tutorial",
+  "version": "1.0.0",
+  "description": "tutorial and notes",
+  "license": "MIT",
+  "author": "George",
   "scripts": {
     "dev": "vitepress dev docs --host",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "next"
   }
 }

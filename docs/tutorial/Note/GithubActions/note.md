@@ -73,6 +73,12 @@ jobs:
         with:
           node-version: 24
 
+      # 如果使用pnpm,后面的都改为pnpm install 和pnpm build
+      # - name: Install pnpm
+      #   uses: pnpm/action-setup@v4
+      #   with:
+      #     version: 10
+
       - name: Install dependencies
         run: npm install
 
