@@ -1,10 +1,14 @@
 # 编程教程和笔记整理
 
-使用`vitepress`构建前端页面
+本项目收集整理各编程教程,以及自己学习过程中所做的的一些笔记
 
-## vitepress 使用
+## 构建说明
 
-`vitepress` [站点](https://vitepress.dev/zh/)
+本项目使用`vitepress`构建前端页面,方便随时[查看](georgetime1970.github.io/Tutorial/)
+
+### vitepress 使用
+
+`vitepress` [官网](https://vitepress.dev/zh/)
 
 ### 文件目录
 
@@ -25,8 +29,6 @@
 - `.vitepress/dist` 存储生产构建输出
 - `.vitepress/config.js` 配置文件,自定义 VitePress 站点的各个方面
 
-### 站点细节配置
+### 站点配置教程
 
-https://vitepress.dev/zh/reference/site-config
-
-直接访问,站内搜索
+[直接访问](https://vitepress.dev/zh/reference/site-config),站内搜索
