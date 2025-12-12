@@ -97,12 +97,12 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
 | `querySelector()`    | 满足条件的第一个元素          |
 | `querySelectorAll()` | 满足条件的元素集合 返回伪数组 |
 
-| 类型       | 获取方式                       |
-| ---------- | ------------------------------ |
-| 元素标签   | `querySelector('p')`           |
-| css 类     | `querySelector('.title')`      |
-| id         | `querySelector('#paragraph')`  |
-| 自定义属性 | `querySelector('[data-name]')` |
+| 类型       | 获取方式                                         |
+| ---------- | ------------------------------------------------ |
+| 元素标签   | `querySelector('p')`                             |
+| css 类     | `querySelector('.title')`                        |
+| id         | `querySelector('#paragraph')` 或直接 `paragraph` |
+| 自定义属性 | `querySelector('[data-name]')`                   |
 
 了解其他方式
 
@@ -124,7 +124,7 @@ DOM（Document Object Model）是将整个 HTML 文档的每一个标签元素�
     const title = document.querySelector('.title') // 使用类,获取元素
     const my_title = document.querySelector('[data-name="my-title"]') // 使用自定义属性,获取元素
     const my_title = document.querySelector('[data-name=my-title]') // 使用自定义属性,获取元素(省略引号写法)
-    const paragraph = document.querySelector('#paragraph') //使用id,获取元素
+    const paragraph = document.querySelector('#paragraph') //使用id,获取元素,或直接使用 paragraph
     const lis = document.querySelectorAll('li') // 获取所有元素(伪数组)
   </script>
 </body>
