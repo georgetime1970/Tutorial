@@ -25,7 +25,7 @@ hero:
       link: /tutorial/Css/base
     - theme: alt
       text: JS笔记
-      link: /tutorial/JavaScript_My/1_基础第一天
+      link: /tutorial/JavaScript_My/JSApi
     - theme: alt
       text: Vue3笔记
       link: /tutorial/Vue/1_vue简介

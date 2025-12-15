@@ -376,6 +376,7 @@ export default defineConfig({
 
       // JavaScript 笔记手册 侧边栏
       '/tutorial/JavaScript_My/': [
+        { text: 'JSApi', collapsed: false, items: [{ text: 'Api 总览', link: '/tutorial/JavaScript_My/JSApi' }] },
         {
           text: '基础',
           collapsed: false,
