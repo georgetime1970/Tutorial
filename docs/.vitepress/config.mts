@@ -64,7 +64,7 @@ export default defineConfig({
       { text: 'TS基础', link: '/tutorial/TypeScript/intro' },
       { text: 'HTML笔记', link: '/tutorial/Html/html' },
       { text: 'CSS笔记', link: '/tutorial/Css/base' },
-      { text: 'JS笔记', link: '/tutorial/JavaScript_My/1_基础第一天' },
+      { text: 'JS笔记', link: '/tutorial/JavaScript_My/JSApi' },
       { text: 'Vue手册', link: '/tutorial/Vue/1_vue简介' },
       { text: 'Linux笔记', link: '/tutorial/Linux/note' },
       { text: '笔记', link: '/tutorial/Note/Git/note' },
@@ -457,6 +457,7 @@ export default defineConfig({
             { text: 'Git', link: '/tutorial/Note/Git/note' },
             { text: 'Docker', link: '/tutorial/Note/Docker/note' },
             { text: 'Github Actions', link: '/tutorial/Note/GithubActions/note' },
+            { text: 'SQLite', link: '/tutorial/Note/SQLite/note' },
           ],
         },
       ],
@@ -478,6 +479,6 @@ export default defineConfig({
     },
 
     // 社交链接
-    // socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/georgetime1970' }],
   },
 })

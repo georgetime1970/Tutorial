@@ -100,18 +100,18 @@
 
 ### 全局函数(Function Properties)
 
-| 名称                      | 类型     | 返回值     | 简介                                   |
-| ------------------------- | -------- | ---------- | -------------------------------------- |
-| `eval(code \| string)`    | function | any        | 执行一段字符串代码(高风险，尽量避免)   |
-| `isFinite(testValue)`     | function | boolean    | 判断是否有限数(会做类型转换)           |
-| `isNaN(testValue)`        | function | boolean    | 判断是否 NaN(会做类型转换)             |
-| `parseFloat(string)`      | function | number/NaN | 字符串解析成浮点数                     |
-| `parseInt(str, radix?)`   | function | number/NaN | 字符串解析成整数(建议显式 radix)       |
-| `encodeURI(URI)`          | function | string     | 编码整段 URI                           |
-| `encodeURIComponent(URI)` | function | string     | 编码 URI 组件(更常用)                  |
-| `decodeURI(URI)`          | function | string     | 解码整段 URI(不会解码保留字符)         |
-| `decodeURIComponent(URI)` | function | string     | 解码 URI 组件                          |
-| `structuredClone(value)`  | function | object     | 深度结构化克隆(支持循环、Map、Date 等) |
+| 名称                      | 返回值     | 简介                                   |
+| ------------------------- | ---------- | -------------------------------------- |
+| `eval(code \| string)`    | any        | 执行一段字符串代码(高风险，尽量避免)   |
+| `isFinite(testValue)`     | boolean    | 判断是否有限数(会做类型转换)           |
+| `isNaN(testValue)`        | boolean    | 判断是否 NaN(会做类型转换)             |
+| `parseFloat(string)`      | number/NaN | 字符串解析成浮点数                     |
+| `parseInt(str, radix?)`   | number/NaN | 字符串解析成整数(建议显式 radix)       |
+| `encodeURI(URI)`          | string     | 编码整段 URI                           |
+| `encodeURIComponent(URI)` | string     | 编码 URI 组件(更常用)                  |
+| `decodeURI(URI)`          | string     | 解码整段 URI(不会解码保留字符)         |
+| `decodeURIComponent(URI)` | string     | 解码 URI 组件                          |
+| `structuredClone(value)`  | object     | 深度结构化克隆(支持循环、Map、Date 等) |
 
 ### 全局构造器/对象(Constructor/Other Properties)
 
@@ -302,18 +302,16 @@
 
 **静态属性/方法**
 
-| API                     | 说明         | 备注 |
-| ----------------------- | ------------ | ---- |
-| Number.EPSILON          | 最小精度差   | ES6  |
-| Number.MAX_SAFE_INTEGER | 最大安全整数 | ES6  |
-| Number.MIN_SAFE_INTEGER | 最小安全整数 | ES6  |
-| Number.isNaN()          | 真 NaN 判断  | ES6  |
-
-|
-| Number.isFinite() | 真有限数判断 | ES6 |
-| Number.isInteger() | 是否整数 | ES6 |
-| Number.isSafeInteger() | 是否安全整数 | ES6 |
-| Number.parseInt() / parseFloat() | 字符串转数字 | ES6 |
+| API                              | 说明         | 备注 |
+| -------------------------------- | ------------ | ---- |
+| Number.EPSILON                   | 最小精度差   | ES6  |
+| Number.MAX_SAFE_INTEGER          | 最大安全整数 | ES6  |
+| Number.MIN_SAFE_INTEGER          | 最小安全整数 | ES6  |
+| Number.isNaN()                   | 真 NaN 判断  | ES6  |
+| Number.isFinite()                | 真有限数判断 | ES6  |
+| Number.isInteger()               | 是否整数     | ES6  |
+| Number.isSafeInteger()           | 是否安全整数 | ES6  |
+| Number.parseInt() / parseFloat() | 字符串转数字 | ES6  |
 
 **实例方法**
 

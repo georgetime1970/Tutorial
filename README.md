@@ -4,7 +4,7 @@
 
 ## 构建说明
 
-本项目使用`vitepress`构建前端页面,方便随时[查看](georgetime1970.github.io/Tutorial/)
+本项目使用`vitepress`构建前端页面,方便随时[查看](https://tutorial.jiangyahan.com/)
 
 ### vitepress 使用
 

@@ -41,9 +41,9 @@ hero:
     - theme: alt
       text: Actions
       link: /tutorial/Note/GithubActions/note.md
-    - theme: alt
-      text: 思考
-      link: /MyThink/思想核心
+    # - theme: alt
+    #   text: 思考
+    #   link: /MyThink/思想核心
   image:
     src: /assets/will.png
     alt: George
