@@ -124,43 +124,43 @@ color: #ff998866; /* 可简为：#f986 */
   2. 字体族必须是最后一位、字体大小必须是倒数第二位。
   3. 各个属性间用空格隔开。
 - 注意:
-  > 实际开发中更推荐复合写法，但这也不是绝对的，比如只想设置字体大小，那就直接用 fontsize 属性。
+  > 实际开发中更推荐复合写法，但这也不是绝对的，比如只想设置字体大小，那就直接用 font-size 属性。
 
 ## 文本属性
 
-| 属性                      | 作用                             | 常用值示例                                                             | 备注                                               |
-| ------------------------- | -------------------------------- | ---------------------------------------------------------------------- | -------------------------------------------------- |
-| color                     | 文字颜色                         | red、#ff0000、rgb(255,0,0)、hsl(0,100%,50%)                            |                                                    |
-| font-family               | 字体族                           | "Microsoft YaHei", Arial, sans-serif                                   | 多个用逗号分隔                                     |
-| font-size                 | 字体大小                         | 16px、1rem、1.2em、100%、larger                                        |                                                    |
-| font-weight               | 字体粗细                         | normal、bold、bolder、lighter、100~900                                 | 400=normal，700=bold                               |
-| font-style                | 字体样式（斜体）                 | normal、italic、oblique                                                |                                                    |
-| font-variant              | 小型大写字母                     | normal、small-caps                                                     |                                                    |
-| font                      | 字体简写属性                     | italic bold 16px/1.5 "Microsoft YaHei", sans-serif                     | 顺序：style weight variant size/line-height family |
-| line-height               | 行高                             | normal、1.5、30px、150%                                                | 推荐无单位数值（如 1.6）                           |
-| letter-spacing            | 字符间距                         | normal、2px、0.1em                                                     | 负值可让字靠得更紧                                 |
-| word-spacing              | 单词间距（针对空格）             | normal、5px                                                            |                                                    |
-| text-align                | 文本水平对齐                     | left、right、center、justify、start、end                               | justify 两端对齐                                   |
-| text-align-last           | 最后一行对齐方式（配合 justify） | left、right、center、justify、start、end                               | 常用于解决两端对齐最后一行左对齐问题               |
-| text-indent               | 首行缩进                         | 2em、32px、-999px（隐藏文本常用）                                      |                                                    |
-| text-decoration           | 文本装饰线                       | none、underline、overline、line-through、blink                         | 简写可组合如 underline overline                    |
-| text-decoration-line      | 装饰线类型（CSS3 分开写）        | none、underline、overline、line-through                                |                                                    |
-| text-decoration-color     | 装饰线颜色                       | red、currentColor                                                      |                                                    |
-| text-decoration-style     | 装饰线样式                       | solid、double、dotted、dashed、wavy                                    |                                                    |
-| text-decoration-thickness | 装饰线粗细                       | 2px、from-font、auto                                                   |                                                    |
-| text-decoration           | 文本装饰简写（CSS3）             | underline red wavy                                                     | 顺序：line color style thickness                   |
-| text-transform            | 文字大小写转换                   | none、capitalize、uppercase、lowercase                                 | capitalize 首字母大写                              |
-| text-shadow               | 文字阴影                         | 2px 2px 4px rgba(0,0,0,0.5)、none                                      | 可多个阴影用逗号分隔                               |
-| white-space               | 空白字符处理方式                 | normal、nowrap、pre、pre-wrap、pre-line、break-spaces                  | nowrap 常用于不换行                                |
-| word-break                | 单词如何换行（中英文混合）       | normal、break-all、keep-all、break-word（已废弃）                      | break-all 常用于强制断词                           |
-| word-wrap / overflow-wrap | 长单词是否允许换行               | normal、break-word、anywhere                                           | anywhere 是新推荐值                                |
-| text-overflow             | 文字溢出时显示方式               | clip、ellipsis、"..."                                                  | 需配合 overflow:hidden 和 white-space:nowrap       |
-| direction                 | 文字方向                         | ltr、rtl                                                               | 常配合 unicode-bidi 使用                           |
-| unicode-bidi              | Unicode 双向算法控制             | normal、embed、bidi-override                                           |                                                    |
-| vertical-align            | 行内元素垂直对齐                 | baseline、top、middle、bottom、text-top、text-bottom、sub、super、20px | 常用于图片与文字对齐                               |
-| text-justify              | 两端对齐时的间距分配方式         | auto、inter-word、inter-character                                      | 主要影响中文两端对齐                               |
-| hanging-punctuation       | 标点悬挂                         | none、first、last、force-end、allow-end                                | 让标点悬挂在行外，提升排版美观                     |
-| line-clamp                | 多行文本截断显示省略号（WebKit） | 3、none                                                                | 非标准，但现代浏览器都支持，需配合 -webkit-box 等  |
+| 属性                          | 作用                             | 常用值示例                                                             | 备注                                               |
+| ----------------------------- | -------------------------------- | ---------------------------------------------------------------------- | -------------------------------------------------- |
+| `color`                       | 文字颜色                         | red、#ff0000、rgb(255,0,0)、hsl(0,100%,50%)                            |                                                    |
+| `font-family`                 | 字体族                           | "Microsoft YaHei", Arial, sans-serif                                   | 多个用逗号分隔                                     |
+| `font-size`                   | 字体大小                         | 16px、1rem、1.2em、100%、larger                                        |                                                    |
+| `font-weight`                 | 字体粗细                         | normal、bold、bolder、lighter、100~900                                 | 400=normal，700=bold                               |
+| `font-style`                  | 字体样式（斜体）                 | normal、italic、oblique                                                |                                                    |
+| `font-variant`                | 小型大写字母                     | normal、small-caps                                                     |                                                    |
+| `font`                        | 字体简写属性                     | italic bold 16px/1.5 "Microsoft YaHei", sans-serif                     | 顺序：style weight variant size/line-height family |
+| `line-height`                 | 行高                             | normal、1.5、30px、150%                                                | 推荐无单位数值（如 1.6）                           |
+| `letter-spacing`              | 字符间距                         | normal、2px、0.1em                                                     | 负值可让字靠得更紧                                 |
+| `word-spacing`                | 单词间距（针对空格）             | normal、5px                                                            |                                                    |
+| `text-align`                  | 文本水平对齐                     | left、right、center、justify、start、end                               | justify 两端对齐                                   |
+| `text-align-last`             | 最后一行对齐方式（配合 justify） | left、right、center、justify、start、end                               | 常用于解决两端对齐最后一行左对齐问题               |
+| `text-indent`                 | 首行缩进                         | 2em、32px、-999px（隐藏文本常用）                                      |                                                    |
+| `text-decoration`             | 文本装饰线                       | none、underline、overline、line-through、blink                         | 简写可组合如 underline overline                    |
+| `text-decoration-line`        | 装饰线类型（CSS3 分开写）        | none、underline、overline、line-through                                |                                                    |
+| `text-decoration-color`       | 装饰线颜色                       | red、currentColor                                                      |                                                    |
+| `text-decoration-style`       | 装饰线样式                       | solid、double、dotted、dashed、wavy                                    |                                                    |
+| `text-decoration-thickness`   | 装饰线粗细                       | 2px、from-font、auto                                                   |                                                    |
+| `text-decoration`             | 文本装饰简写（CSS3）             | underline red wavy                                                     | 顺序：line color style thickness                   |
+| `text-transform`              | 文字大小写转换                   | none、capitalize、uppercase、lowercase                                 | capitalize 首字母大写                              |
+| `text-shadow`                 | 文字阴影                         | 2px 2px 4px rgba(0,0,0,0.5)、none                                      | 可多个阴影用逗号分隔                               |
+| `white-space`                 | 空白字符处理方式                 | normal、nowrap、pre、pre-wrap、pre-line、break-spaces                  | nowrap 常用于不换行                                |
+| `word-break`                  | 单词如何换行（中英文混合）       | normal、break-all、keep-all、break-word（已废弃）                      | break-all 常用于强制断词                           |
+| `word-wrap` / `overflow-wrap` | 长单词是否允许换行               | normal、break-word、anywhere                                           | anywhere 是新推荐值                                |
+| `text-overflow`               | 文字溢出时显示方式               | clip、ellipsis、"..."                                                  | 需配合 overflow:hidden 和 white-space:nowrap       |
+| `direction`                   | 文字方向                         | ltr、rtl                                                               | 常配合 unicode-bidi 使用                           |
+| `unicode-bidi`                | Unicode 双向算法控制             | normal、embed、bidi-override                                           |                                                    |
+| `vertical-align`              | 行内元素垂直对齐                 | baseline、top、middle、bottom、text-top、text-bottom、sub、super、20px | 常用于图片与文字对齐                               |
+| `text-justify`                | 两端对齐时的间距分配方式         | auto、inter-word、inter-character                                      | 主要影响中文两端对齐                               |
+| `hanging-punctuation`         | 标点悬挂                         | none、first、last、force-end、allow-end                                | 让标点悬挂在行外，提升排版美观                     |
+| `line-clamp`                  | 多行文本截断显示省略号（WebKit） | 3、none                                                                | 非标准，但现代浏览器都支持，需配合 -webkit-box 等  |
 
 ### 文本颜色
 
@@ -349,20 +349,22 @@ td {
 
 特别说明最新的几个特性（2024-2025 年已落地或即将落地）
 
-| 新特性                                                    | 说明                                       | 示例代码                                                                | 支持情况（2025.11）                       |
-| --------------------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------- | ----------------------------------------- |
-| `background-clip: text` + `-webkit-background-clip: text` | 背景只显示在文字上，常用于文字渐变镂空效果 | ```css                                                                  |
-| 多背景图像的完整支持（已 10 多年）                        | 一条 background-image 可写多张，用逗号分隔 | `background-image: url(1.png), url(2.png), linear-gradient(...);`       | 全部支持                                  |
-| `image()` 函数                                            | 可设置备选图片（类似 image-set）           | `background-image: image('cat.png' ltr, 'dog.png' rtl, 'default.png');` | Chrome/Edge/Safari 支持，Firefox 部分支持 |
-| `cross-fade()`                                            | 两张图片之间渐变混合                       | `background: cross-fade(20% url(a.png), url(b.png));`                   | 基本全支持                                |
-| `color-mix()` 用在背景色                                  | 动态混合两种颜色                           | `background-color: color-mix(in srgb, red 30%, blue);`                  | 全部主流浏览器支持（2024 年起）           |
-| `element()` 函数（极新）                                  | 把页面某个元素当作背景图（类似截图）       | `background: element(#some-div);`                                       | 仅 Firefox 部分支持，实验性               |
+| 新特性                                                    | 说明                                       | 示例代码                                                                                                                     | 支持情况（2025.11）                                 |
+| --------------------------------------------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| `background-clip: text` + `-webkit-background-clip: text` | 文字镂空背景（渐变文字效果）               | `background: linear-gradient(90deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;` | Chrome/Safari/Edge 全支持，Firefox 部分支持 Level 4 |
+| 多背景图像的完整支持                                      | 一条 background-image 可写多张，用逗号分隔 | `background-image: url(1.png), url(2.png), linear-gradient(45deg, red, blue);`                                               | 全部支持                                            |
+| `image()` 函数                                            | 可设置备选图片（类似 image-set）           | `background-image: image('cat.png' ltr, 'dog.png' rtl, 'default.png');`                                                      | Chrome/Edge/Safari 支持，Firefox 部分支持           |
+| `cross-fade()`                                            | 两张图片之间渐变混合                       | `background: cross-fade(20% url(a.png), url(b.png));`                                                                        | 基本全支持                                          |
+| `color-mix()` 用在背景色                                  | 动态混合两种颜色                           | `background-color: color-mix(in srgb, red 30%, blue);`                                                                       | 全部主流浏览器支持（2024 年起）                     |
+| `element()` 函数（极新）                                  | 把页面某个元素当作背景图（类似截图）       | `background: element(#some-div);`                                                                                            | 仅 Firefox 部分支持，实验性                         |
 
 ### 写法示例
 
 ```css
 .hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%), url('hero-bg.jpg') center/cover no-repeat;
+  background:
+    linear-gradient(135deg, #667eea 0%, #764ba2 100%),
+    url('hero-bg.jpg') center/cover no-repeat;
   background-clip: padding-box; /* 或 text 用于文字效果 */
   background-blend-mode: multiply; /* 混合模式 */
 }
@@ -370,7 +372,7 @@ td {
 
 ## 滤镜属性
 
-- `filter`: 作用与自身元素及其子元素
+- `filter`: 作用于自身元素及其子元素
 - `backdrop-filter`: 模糊的是元素后面的东西（常用于毛玻璃、磨砂背景）
 
 | filter 函数     | 语法示例                                            | 功能说明                                                      | 常用取值范围                | 备注                   |
@@ -403,7 +405,7 @@ filter: blur(5px) brightness(1.2) contrast(120%) grayscale(30%);
 | 鼠标悬停增强           | `brightness(1.2) contrast(1.2) saturate(1.3)`        |
 | 完全反色               | `invert(100%)`                                       |
 
-这些就是目前所有标准的 CSS filter 函数（截至 2025 年没有新增）。直接复制上面的表格到笔记或项目文档里就能用了～如果需要 SVG filter 更复杂的效果可以另外再说！
+这些就是目前所有标准的 CSS filter 函数（截至 2025 年没有新增）。
 
 ## 过渡属性
 
