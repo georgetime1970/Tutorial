@@ -1537,11 +1537,3 @@ SELECT *, rank FROM email_fts WHERE email_fts MATCH '会议' ORDER BY rank;
 用于优化数据库
 
 [VACUUM 命令 参考](https://www.sqlitetutorial.net/sqlite-vacuum/)
-
-```
-
-```
-
-```
-
-```
