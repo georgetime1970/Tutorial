@@ -4,7 +4,7 @@ import { nav } from "../../index";
 import { computed } from "vue";
 // 提前过滤掉不需要的项
 const filteredNav = computed(() => {
-  return nav.filter((value) => value.text !== "思考");
+  return nav.filter((value) => value.text !== "Think");
 });
 </script>
 
