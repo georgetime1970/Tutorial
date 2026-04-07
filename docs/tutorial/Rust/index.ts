@@ -19,7 +19,8 @@ const directory = [
       { text: "泛型和trait", link: "/tutorial/Rust/14.泛型和trait" },
       { text: "生命周期", link: "/tutorial/Rust/15.生命周期" },
       { text: "自动化测试", link: "/tutorial/Rust/16.编写自动化测试" },
-      { text: "闭包", link: "/tutorial/Rust/17.闭包" },
+      { text: "闭包和迭代器", link: "/tutorial/Rust/17.闭包和迭代器" },
+      { text: "Cargo和Crates.io", link: "/tutorial/Rust/18.Cargo和Crates.io" },
     ],
   },
 ];
