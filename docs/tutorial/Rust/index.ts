@@ -21,6 +21,7 @@ const directory = [
       { text: "自动化测试", link: "/tutorial/Rust/16.编写自动化测试" },
       { text: "闭包和迭代器", link: "/tutorial/Rust/17.闭包和迭代器" },
       { text: "Cargo和Crates.io", link: "/tutorial/Rust/18.Cargo和Crates.io" },
+      { text: "智能指针", link: "/tutorial/Rust/19.智能指针" },
     ],
   },
 ];
