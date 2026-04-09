@@ -34,7 +34,7 @@ pub mod c_method {
 // trait必须显式的和type一起导入,这样Type才可以使用trait上的方法
 pub mod d {
     pub trait More {
-        // 强制子类实现这个方法，返回一个字符串
+        // 强制子类实现这个方法,返回一个字符串
         fn name(&self) -> &str;
 
         // 默认方法里只打印这个字符串
