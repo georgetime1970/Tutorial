@@ -6,7 +6,8 @@ const directory = [
       { text: "安装并创建项目", link: "/tutorial/Rust/1.1.安装并创建项目" },
       { text: "打印和格式化", link: "/tutorial/Rust/1.2.打印和格式化" },
       { text: "变量和可变性", link: "/tutorial/Rust/2.变量和可变性" },
-      { text: "数据类型", link: "/tutorial/Rust/3.数据类型" },
+      { text: "数据类型", link: "/tutorial/Rust/3.1.数据类型" },
+      { text: "控制流", link: "/tutorial/Rust/3.2.控制流" },
       { text: "函数", link: "/tutorial/Rust/4.函数" },
       { text: "所有权和切片", link: "/tutorial/Rust/5.1.所有权" },
       { text: "所有权延申", link: "/tutorial/Rust/5.2.所有权延申" },
@@ -15,7 +16,8 @@ const directory = [
       { text: "match模式匹配", link: "/tutorial/Rust/8.match模式匹配" },
       { text: "模块系统", link: "/tutorial/Rust/9.模块系统" },
       { text: "vector向量", link: "/tutorial/Rust/10.向量vector" },
-      { text: "String字符串", link: "/tutorial/Rust/11.字符串String" },
+      { text: "String字符串", link: "/tutorial/Rust/11.1.字符串String" },
+      { text: "String延申", link: "/tutorial/Rust/11.2.字符串延申" },
       { text: "HashMap哈希表", link: "/tutorial/Rust/12.哈希map" },
       { text: "错误处理", link: "/tutorial/Rust/13.错误处理" },
       { text: "泛型和trait", link: "/tutorial/Rust/14.泛型和trait" },
@@ -25,13 +27,10 @@ const directory = [
       { text: "Cargo和Crates.io", link: "/tutorial/Rust/18.Cargo和Crates.io" },
       { text: "智能指针", link: "/tutorial/Rust/19.1.智能指针" },
       { text: "智能指针总结", link: "/tutorial/Rust/19.2.智能指针总结" },
+      { text: "无畏并发", link: "/tutorial/Rust/20.1.无畏并发" },
+      { text: "无畏并发延申", link: "/tutorial/Rust/20.2.无畏并发延申" },
+      { text: "异步编程基础", link: "/tutorial/Rust/21.异步编程基础" },
     ],
   },
 ];
-const home = "/tutorial/Rust/0.前言";
-
-const data = {
-  directory,
-  home,
-};
-export default data;
+export default directory;

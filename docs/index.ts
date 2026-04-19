@@ -15,12 +15,11 @@ import SQLite from "./tutorial/SQLite";
 import TypeScript from "./tutorial/TypeScript";
 import Vue from "./tutorial/Vue";
 
-// 顶部导航栏, 首页导航按钮/侧边栏详情可复用数据
-// !!! items.text值必须与目录名一致!!! 否则侧边栏详情将生成错误
-// 一个目录项示例: { text: "JavaScript", link: JavaScript.home, directory: JavaScript.directory }, text值必须与目录名一致
+// 顶部导航栏, 首页导航按钮组件/侧边栏详情皆复用的此数据
 export const nav = [
   {
     text: "基础", // 顶部导航栏分类可以随便写
+    // 下面的items.text值必须与目录名一致!!! 否则侧边栏详情将生成错误
     items: [
       { text: "JavaScript", link: JavaScript.home, directory: JavaScript.directory },
       { text: "ES6", link: ES6.home, directory: ES6.directory },
@@ -30,7 +29,7 @@ export const nav = [
   {
     text: "笔记",
     items: [
-      { text: "Rust", link: Rust.home, directory: Rust.directory },
+      { text: "Rust", link: Rust[0].items[0].link, directory: Rust }, // 只使用一个侧边栏数据
       { text: "Html", link: Html.home, directory: Html.directory },
       { text: "Css", link: Css.home, directory: Css.directory },
       { text: "JavaScript_My", link: JavaScript_My.home, directory: JavaScript_My.directory },
@@ -58,8 +57,8 @@ const sidebarObj: {
 for (const item of nav) {
   for (const subItem of item.items) {
     let title = `/tutorial/${subItem.text}/`;
+    //单独处理思考的侧边栏路径
     if (subItem.text === "MyThink") {
-      //单独处理思考的侧边栏路径
       title = `/${subItem.text}/`;
     }
     sidebarObj[title] = subItem.directory;
