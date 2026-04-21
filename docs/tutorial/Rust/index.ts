@@ -9,6 +9,7 @@ const directory = [
       { text: "数据类型", link: "/tutorial/Rust/3.1.数据类型" },
       { text: "控制流", link: "/tutorial/Rust/3.2.控制流" },
       { text: "函数", link: "/tutorial/Rust/4.函数" },
+      { text: "指针", link: "/tutorial/Rust/5.0.指针" },
       { text: "所有权和切片", link: "/tutorial/Rust/5.1.所有权" },
       { text: "所有权延申", link: "/tutorial/Rust/5.2.所有权延申" },
       { text: "struct结构体", link: "/tutorial/Rust/6.struct结构体" },
