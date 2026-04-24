@@ -34,6 +34,11 @@ const directory = [
       { text: "异步编程", link: "/tutorial/Rust/21.1.异步编程" },
       { text: "异步编程延申", link: "/tutorial/Rust/21.2.异步编程延申" },
       { text: "面向对象编程", link: "/tutorial/Rust/22.1.面向对象编程" },
+      { text: "不安全 Rust", link: "/tutorial/Rust/23.1.unsafeRust" },
+      { text: "高级 Trait", link: "/tutorial/Rust/24.1.高级trait" },
+      { text: "高级 类型", link: "/tutorial/Rust/25.1.高级类型" },
+      { text: "高级函数和闭包", link: "/tutorial/Rust/26.1.高级函数和闭包" },
+      { text: "宏", link: "/tutorial/Rust/27.1.宏" },
     ],
   },
 ];

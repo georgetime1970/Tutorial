@@ -13,6 +13,7 @@ export default defineConfig({
   ],
   // markdown 配置
   markdown: {
+    lineNumbers: true, // 启用行号
     image: {
       // 默认禁用；设置为 true 可为所有图片启用懒加载。
       lazyLoading: true,
