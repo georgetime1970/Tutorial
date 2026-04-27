@@ -29,6 +29,7 @@ const directory = [
       { text: "Module 的语法", link: "/tutorial/ES6/module" },
       { text: "Module 的加载实现", link: "/tutorial/ES6/module-loader" },
       { text: "编程风格", link: "/tutorial/ES6/style" },
+      { text: "函数式编程", link: "/tutorial/ES6/fp" },
       { text: "读懂规格", link: "/tutorial/ES6/spec" },
       { text: "异步遍历器", link: "/tutorial/ES6/async-iterator" },
       { text: "ArrayBuffer", link: "/tutorial/ES6/arraybuffer" },
