@@ -1,4 +1,3 @@
-const home = "/tutorial/ES6/intro";
 const directory = [
   {
     text: "ES6基础",
@@ -41,9 +40,4 @@ const directory = [
   },
 ];
 
-const data = {
-  directory,
-  home,
-};
-
-export default data;
+export default directory;

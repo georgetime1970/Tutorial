@@ -170,9 +170,4 @@ const directory = [
   },
 ];
 
-const data = {
-  directory,
-  home,
-};
-
-export default data;
+export default directory;

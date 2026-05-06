@@ -7,10 +7,4 @@ const directory = [
     ],
   },
 ];
-const home = "/tutorial/Linux/note";
-
-const data = {
-  directory,
-  home,
-};
-export default data;
+export default directory;

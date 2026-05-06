@@ -609,3 +609,30 @@
   --vp-local-search-highlight-bg: var(--vp-c-brand-1);
   --vp-local-search-highlight-text: var(--vp-c-neutral-inverse);
 }
+
+/* 去除底部外边距 */
+.VPHome {
+  margin-bottom: 0 !important;
+}
+
+/* 调整底部网格布局 */
+.item.grid-2,
+.item.grid-4 {
+  width: calc(100% / 2);
+}
+
+article.box {
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 640px) {
+  .item.grid-4[data-v-b60213ad] {
+    width: calc(100% / 4);
+  }
+}
+
+@media (min-width: 960px) {
+  .item.grid-4[data-v-b60213ad] {
+    width: calc(100% / 6);
+  }
+}

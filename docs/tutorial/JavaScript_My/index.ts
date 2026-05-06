@@ -44,10 +44,4 @@ const directory = [
   },
 ];
 
-const home = "/tutorial/JavaScript_My/JSApi";
-
-const data = {
-  directory,
-  home,
-};
-export default data;
+export default directory;

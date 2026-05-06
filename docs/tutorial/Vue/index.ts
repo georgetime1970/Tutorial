@@ -14,10 +14,4 @@ const dirctory = [
   },
 ];
 
-const home = "/tutorial/Vue/1_vue简介";
-
-const data = {
-  directory: dirctory,
-  home,
-};
-export default data;
+export default dirctory;

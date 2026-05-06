@@ -5,10 +5,4 @@ const directory = [
   },
 ];
 
-const home = "/tutorial/SQLite/note";
-
-const data = {
-  directory,
-  home,
-};
-export default data;
+export default directory;

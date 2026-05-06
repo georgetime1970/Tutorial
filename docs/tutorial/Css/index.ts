@@ -11,10 +11,4 @@ const directory = [
   },
 ];
 
-const home = "/tutorial/Css/base";
-
-const data = {
-  directory,
-  home,
-};
-export default data;
+export default directory;

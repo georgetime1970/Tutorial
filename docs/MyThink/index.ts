@@ -11,10 +11,4 @@ const directory = [
   },
 ];
 
-const home = "/MyThink/思想核心";
-
-const data = {
-  directory,
-  home,
-};
-export default data;
+export default directory;
