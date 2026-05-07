@@ -7,7 +7,7 @@ const directory = [
       { text: "寄存器", link: "/tutorial/Asm/02-寄存器" },
       { text: "寄存器(内存访问)", link: "/tutorial/Asm/03-寄存器(内存访问)" },
       { text: "第一个程序", link: "/tutorial/Asm/04-第一个程序" },
-      { text: "[bx]和loop", link: "/tutorial/Asm/05-[bx]和loop" },
+      { text: "[bx]和loop", link: "/tutorial/Asm/05-bx和loop" },
       { text: "包含多个段的程序", link: "/tutorial/Asm/06-包含多个段的程序" },
       { text: "更灵活的定位内存地址的方法", link: "/tutorial/Asm/07-更灵活的定位内存地址的方法" },
       { text: "数据处理的两个基本问题", link: "/tutorial/Asm/08-数据处理的两个基本问题" },
