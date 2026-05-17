@@ -8,7 +8,7 @@ hero:
   text: "先完成再完美!"
   tagline: Perfection is a trap.
   image:
-    src: /assets/will.png
+    src: /logo/george600.jpg
     alt: George
 
 features:

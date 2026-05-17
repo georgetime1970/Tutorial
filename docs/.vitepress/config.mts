@@ -8,8 +8,8 @@ export default defineConfig({
   // base: '/Tutorial/', // GitHub 页面下部署站点，则需要设置此项,注意斜杠开头和结尾不能少！
   head: [
     // 站点图标
-    // ['link', { rel: 'icon', href: '/Tutorial/logo/will-o.ico' }], // 如果使用github的域名,构建到GitHub 页面,需要加仓库的名字
-    ["link", { rel: "icon", href: "/logo/will-o.ico" }], // 构建到GitHub 页面,需要加仓库的名字
+    // ['link', { rel: 'icon', href: '/Tutorial/logo/48.ico' }], // 如果使用github的域名,构建到GitHub 页面,需要加仓库的名字
+    ["link", { rel: "icon", href: "/logo/48.ico" }], // 构建到GitHub 页面,需要加仓库的名字
   ],
   // markdown 配置
   markdown: {
@@ -26,7 +26,7 @@ export default defineConfig({
   // 主题级选项
   themeConfig: {
     // 导航栏上显示的 Logo，位于站点标题前。
-    logo: "/logo/will-o.png",
+    logo: "/logo/48.ico",
     // 启用本地搜索
     search: {
       provider: "local",
