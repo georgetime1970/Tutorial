@@ -2,12 +2,12 @@
 
 ## 前置条件
 
-| 要求 | 说明 |
-| ---- | ---- |
-| **Node.js** | **22.x 或更高**（推荐使用当前 Active LTS 版本） |
-| **包管理器** | npm（自带）、pnpm、yarn、bun 均可 |
-| **终端** | 用于运行 Nuxt CLI 命令 |
-| **编辑器** | 无强制要求；推荐 VS Code + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) 扩展（原 Volar） |
+| 要求         | 说明                                                                                                                        |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| **Node.js**  | **22.x 或更高**（推荐使用当前 Active LTS 版本）                                                                             |
+| **包管理器** | npm（自带）、pnpm、yarn、bun 均可                                                                                           |
+| **终端**     | 用于运行 Nuxt CLI 命令                                                                                                      |
+| **编辑器**   | 无强制要求；推荐 VS Code + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) 扩展（原 Volar） |
 
 > Nuxt 4 要求 Node 22+。可用 `node -v` 检查版本；过低请先升级 Node。
 
@@ -22,11 +22,11 @@ npm create nuxt@latest <project-name>
 
 交互式向导会询问：
 
-| 选项 | 常见选择 | 说明 |
-| ---- | -------- | ---- |
-| Package manager | npm / pnpm / yarn | 项目使用的包管理器 |
-| TypeScript | Yes | 强烈推荐，获完整类型提示 |
-| Nuxt UI / ESLint 等 | 按需 | 可后续再添加 |
+| 选项                | 常见选择          | 说明                     |
+| ------------------- | ----------------- | ------------------------ |
+| Package manager     | npm / pnpm / yarn | 项目使用的包管理器       |
+| TypeScript          | Yes               | 强烈推荐，获完整类型提示 |
+| Nuxt UI / ESLint 等 | 按需              | 可后续再添加             |
 
 ### 其他包管理器（简要）
 
@@ -47,17 +47,17 @@ cd <project-name>
 ## 启动开发服务器
 
 ```bash
-# npm：-- -o 表示自动在浏览器打开 http://localhost:3000
+# npm：-- -o 表示自动在浏览器打开本地开发地址（默认端口 3000）
 npm run dev -- -o
 ```
 
-| 包管理器 | 等价命令 |
-| -------- | -------- |
-| npm | `npm run dev -- -o` |
-| pnpm | `pnpm dev -o` |
-| yarn | `yarn dev -o` |
+| 包管理器 | 等价命令            |
+| -------- | ------------------- |
+| npm      | `npm run dev -- -o` |
+| pnpm     | `pnpm dev -o`       |
+| yarn     | `yarn dev -o`       |
 
-开发服务器默认监听 **http://localhost:3000**，支持 HMR。修改 `app/` 下的文件会即时反映到浏览器。
+开发服务器默认监听 `http://localhost:3000`，支持 HMR。修改 `app/` 下的文件会即时反映到浏览器。
 
 ## 生成项目的首次浏览
 
@@ -79,12 +79,12 @@ my-nuxt-app/
 
 ### 关键文件说明
 
-| 文件/目录 | 作用 |
-| --------- | ---- |
-| `app/app.vue` | 应用入口，通常包含 `<NuxtLayout>` 与 `<NuxtPage />` |
-| `app/pages/index.vue` | 首页，路由 `/` |
-| `nuxt.config.ts` | 框架配置入口 |
-| `.nuxt/` | 开发时自动生成的类型与内部文件，加入 `.gitignore` |
+| 文件/目录             | 作用                                                |
+| --------------------- | --------------------------------------------------- |
+| `app/app.vue`         | 应用入口，通常包含 `<NuxtLayout>` 与 `<NuxtPage />` |
+| `app/pages/index.vue` | 首页，路由 `/`                                      |
+| `nuxt.config.ts`      | 框架配置入口                                        |
+| `.nuxt/`              | 开发时自动生成的类型与内部文件，加入 `.gitignore`   |
 
 ## 示例
 
@@ -94,7 +94,7 @@ my-nuxt-app/
 <!-- app/pages/index.vue -->
 <script setup lang="ts">
 // useHead 自动导入，设置页面标题
-useHead({ title: '我的第一个 Nuxt 4 应用' })
+useHead({ title: "我的第一个 Nuxt 4 应用" });
 </script>
 
 <template>
@@ -120,7 +120,7 @@ useHead({ title: '我的第一个 Nuxt 4 应用' })
 </template>
 ```
 
-访问 http://localhost:3000/about 即可看到新页面。
+访问 `http://localhost:3000/about` 即可看到新页面。
 
 ### 查看 package.json 常用脚本
 
@@ -135,12 +135,12 @@ useHead({ title: '我的第一个 Nuxt 4 应用' })
 }
 ```
 
-| 脚本 | 用途 |
-| ---- | ---- |
-| `dev` | 开发模式 + HMR |
-| `build` | 生产构建（输出 `.output/`） |
-| `generate` | 静态站点生成 |
-| `preview` | 本地预览生产构建 |
+| 脚本       | 用途                        |
+| ---------- | --------------------------- |
+| `dev`      | 开发模式 + HMR              |
+| `build`    | 生产构建（输出 `.output/`） |
+| `generate` | 静态站点生成                |
+| `preview`  | 本地预览生产构建            |
 
 ### 在 VS Code 中打开项目
 
@@ -162,12 +162,12 @@ code <project-name>
 
 ## 常见问题
 
-| 问题 | 处理 |
-| ---- | ---- |
-| `create nuxt` 报错 Node 版本 | 升级到 Node 22+ |
-| 端口 3000 被占用 | `npm run dev -- -p 3001` 指定其他端口 |
-| 类型报错找不到模块 | 先运行一次 `npm run dev` 生成 `.nuxt/` 类型 |
-| 从 Nuxt 3 迁移 | 将根目录 `pages/` 等移入 `app/` |
+| 问题                         | 处理                                        |
+| ---------------------------- | ------------------------------------------- |
+| `create nuxt` 报错 Node 版本 | 升级到 Node 22+                             |
+| 端口 3000 被占用             | `npm run dev -- -p 3001` 指定其他端口       |
+| 类型报错找不到模块           | 先运行一次 `npm run dev` 生成 `.nuxt/` 类型 |
+| 从 Nuxt 3 迁移               | 将根目录 `pages/` 等移入 `app/`             |
 
 ## 小结
 
