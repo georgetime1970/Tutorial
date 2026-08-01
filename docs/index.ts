@@ -11,9 +11,9 @@ import Html from "./tutorial/Html";
 import JavaScript from "./tutorial/JavaScript";
 import JavaScript_My from "./tutorial/JavaScript_My";
 import Linux from "./tutorial/Linux";
+import Nuxt from "./tutorial/Nuxt";
 import SQLite from "./tutorial/SQLite";
 import TypeScript from "./tutorial/TypeScript";
-import Vue from "./tutorial/Vue";
 // 顶部导航栏, 首页导航按钮组件/侧边栏详情皆复用的此数据
 export const nav = [
   {
@@ -32,7 +32,7 @@ export const nav = [
       { text: "Html", link: Html[0].items[0].link, directory: Html },
       { text: "Css", link: Css[0].items[0].link, directory: Css },
       { text: "JavaScript_My", link: JavaScript_My[0].items[0].link, directory: JavaScript_My },
-      { text: "Vue", link: Vue[0].items[0].link, directory: Vue },
+      { text: "Nuxt", link: Nuxt[0].items[0].link, directory: Nuxt },
       { text: "Linux", link: Linux[0].items[0].link, directory: Linux },
       { text: "Git", link: Git[0].items[0].link, directory: Git },
       { text: "Docker", link: Docker[0].items[0].link, directory: Docker },

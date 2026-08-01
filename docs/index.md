@@ -6,7 +6,7 @@ layout: home
 hero:
   name: "乔治的编程手册"
   text: "先完成再完美!"
-  tagline: Perfection is a trap.
+  tagline: The world has no end and never turns back.
   image:
     src: /logo/george600.jpg
     alt: George

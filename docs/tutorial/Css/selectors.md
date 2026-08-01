@@ -1,200 +1,233 @@
 # CSS 选择器
 
+## 定义
+
+**选择器（Selector）** 用于匹配文档树中的元素，以便附加样式规则。选择器类型与组合方式共同决定**匹配范围**和**优先级权重**。
+
 ## 基本选择器
 
-| 基本选择器 | 说明                                             | 用法                  |
-| ---------- | ------------------------------------------------ | --------------------- |
-| 通配选择器 | 选中所有标签，一般用于清除样式                   | `* {color:red}`       |
-| 元素选择器 | 选中所有同种标签，但是不能差异化选择             | `h1 {color:red} `     |
-| 类选择器   | 选中所有特定类名（ class 值）的元素,使用频率很高 | `.say {color:red}`    |
-| ID 选择器  | 选中特定 id 值的那个元素（唯一的）               | `#earthy {color:red}` |
+| 选择器 | 语法       | 说明                           | 权重    |
+| ------ | ---------- | ------------------------------ | ------- |
+| 通配   | `*`        | 匹配任意元素                   | 0,0,0,0 |
+| 类型   | `div`、`p` | 匹配标签名                     | 0,0,0,1 |
+| 类     | `.btn`     | 匹配 `class` 含该值的元素      | 0,0,1,0 |
+| ID     | `#header`  | 匹配 `id` 属性（文档内应唯一） | 0,1,0,0 |
 
-## 复合选择器
+```css
+* {
+  box-sizing: border-box;
+} /* 全局盒模型 */
+p {
+  line-height: 1.6;
+} /* 所有段落 */
+.btn {
+  padding: 8px 16px;
+} /* 所有带 btn 类的元素 */
+#header {
+  position: sticky;
+} /* id 为 header 的元素 */
+```
 
-| 复合选择器     | 说明                         | 用法                 | 符号   |
-| -------------- | ---------------------------- | -------------------- | ------ |
-| 交集选择器(且) | 选中同时符合多个条件的元素   | `选择器1选择器2 {}`  | 紧挨着 |
-| 并集选择器(或) | 选中多个选择器对应的元素     | `选择器1,选择器2 {}` | `,`    |
-| 后代选择器     | 符合要求的后代元素           | `选择器1 选择器2 {}` | 空格   |
-| 子代选择器     | 符合要求的子元素             | `选择器1>选择器2 {}` | `>`    |
-| 相邻兄弟选择器 | 符合条件的**相邻**兄弟元素   | `选择器1+选择器2 {}` | `+`    |
-| 通用兄弟选择器 | 符合条件的**所有**兄弟元素   | `选择器1~选择器2 {}` | `~`    |
-| 属性选择器     | 选中属性值符合一定要求的元素 | 见下表               |        |
+## 组合器（Combinators）
+
+| 组合器   | 语法    | 匹配关系                  |
+| -------- | ------- | ------------------------- |
+| 后代     | `A B`   | A 内部任意层级的 B        |
+| 子代     | `A > B` | A 的直接子元素 B          |
+| 相邻兄弟 | `A + B` | 紧接在 A 后的第一个兄弟 B |
+| 通用兄弟 | `A ~ B` | A 之后所有同级 B          |
+
+```css
+nav a {
+  text-decoration: none;
+} /* nav 内所有链接 */
+ul > li {
+  list-style: none;
+} /* 仅直接 li 子项 */
+h2 + p {
+  margin-top: 0;
+} /* 紧跟 h2 的第一段 */
+h2 ~ p {
+  color: #666;
+} /* h2 后所有同级 p */
+```
+
+**并集**：`A, B` 同时匹配 A 与 B（各自独立计算优先级）。
 
 ## 属性选择器
 
-| 属性选择器语法            | 说明                                             |
-| ------------------------- | ------------------------------------------------ |
-| **选择器[属性名]**        | 选中具有某个属性的元素。                         |
-| **选择器[属性名="值"]**   | 选中包含某个属性，且属性值等于指定值的元素。     |
-| **选择器[属性名^="值"]**  | 选中包含某个属性，且属性值以指定的值开头的元素。 |
-| **选择器[属性名$="值"]**  | 选中包含某个属性，且属性值以指定的值结尾的元素。 |
-| **选择器[属性名\*=“值”]** | 选择包含某个属性，属性值包含指定值的元素。       |
+| 语法             | 含义                        |
+| ---------------- | --------------------------- |
+| `[attr]`         | 存在 `attr` 属性            |
+| `[attr="val"]`   | 属性值完全等于              |
+| `[attr~="val"]`  | 空格分隔列表中含 `val`      |
+| `[attr\|="val"]` | 等于 `val` 或以 `val-` 开头 |
+| `[attr^="val"]`  | 以 `val` 开头               |
+| `[attr$="val"]`  | 以 `val` 结尾               |
+| `[attr*="val"]`  | 包含子串 `val`              |
 
 ```css
-/* 选择器[属性名]: 选中具有title属性的元素 */
-div[title] {
-  color: red;
+input[type="email"] {
+  border-color: blue;
 }
-/* 选择器[属性名="值"]: 选中title属性值为atguigu的元素 */
-div[title='atguigu'] {
-  color: red;
-}
-/* 选择器[属性名^="值"]: 选中title属性值以a开头的元素 */
-div[title^='a'] {
-  color: red;
-}
-/* 选择器[属性名$="值"]: 选中title属性值以u结尾的元素 */
-div[title$='u'] {
-  color: red;
-}
-/* 选择器[属性名*=“值”]: 选中title属性值包含g的元素 */
-div[title*='g'] {
-  color: red;
-}
+a[href^="https"]::after {
+  content: " ↗";
+} /* 外链提示 */
+[class*="col-"] {
+  float: left;
+} /* 类名含 col- */
 ```
 
-## 伪类选择器
+## 伪类（Pseudo-classes）
 
-伪类: 有类的作用,但不是类
+伪类表示元素的**状态或结构位置**，用单冒号 `:`。
 
 ### 动态伪类
 
-| 伪类选择器 | 说明                   | 示例                                   |
-| ---------- | ---------------------- | -------------------------------------- |
-| `:hover`   | 当鼠标悬停在元素上     | `button:hover { background: yellow; }` |
-| `:active`  | 元素被激活（如点击时） | `a:active { color: green; }`           |
-| `:focus`   | 元素获得焦点           | `input:focus { border-color: blue; }`  |
-| `:visited` | 用户已访问的链接       | `a:visited { color: purple; }`         |
-| `:link`    | 用户未访问的链接       | `a:link { color: red; }`               |
+| 伪类                        | 场景                    |
+| --------------------------- | ----------------------- |
+| `:link`                     | 未访问的超链接          |
+| `:visited`                  | 已访问的超链接          |
+| `:hover`                    | 指针悬停                |
+| `:active`                   | 激活（如鼠标按下）      |
+| `:focus` / `:focus-visible` | 获得焦点 / 键盘可见焦点 |
 
-注意点：遵循 `LVHA` 的顺序，即： `link` 、 `visited` 、 `hover` 、 `active`
+链接样式建议顺序 **LVHA**：`:link` → `:visited` → `:hover` → `:active`。
 
 ### 结构伪类
 
-| 常用语法                | 说明                                  |
-| ----------------------- | ------------------------------------- |
-| `选择器:first-child`    | **所有兄弟**元素中的第一个。          |
-| `选择器:last-child`     | **所有兄弟**元素中的最后一个。        |
-| `选择器:nth-child(n)`   | **所有兄弟**元素中的第 n 个。         |
-| `选择器:first-of-type`  | 所有**同类型**兄弟元素中的第一个。    |
-| `选择器:last-of-type`   | 所有**同类型**兄弟元素中的最后一个。  |
-| `选择器:nth-of-type(n)` | 所有**同类型**兄弟元素中的 第 n 个 。 |
+| 伪类                               | 说明                                 |
+| ---------------------------------- | ------------------------------------ |
+| `:first-child` / `:last-child`     | 父元素下第一个 / 最后一个子元素      |
+| `:nth-child(n)`                    | 第 n 个子元素（支持 `2n+1`、`even`） |
+| `:first-of-type` / `:last-of-type` | 同标签兄弟中第一个 / 最后一个        |
+| `:nth-of-type(n)`                  | 同标签兄弟中第 n 个                  |
+| `:only-child` / `:empty`           | 唯一子元素 / 无子节点（含文本）      |
 
-| 了解语法                     | 说明                                  |
-| ---------------------------- | ------------------------------------- |
-| `选择器:nth-last-child(n)`   | 所有兄弟元素中的倒数第 n 个。         |
-| `选择器:nth-last-of-type(n)` | 所有同类型兄弟元素中的 倒数第 n 个 。 |
-| `选择器:only-child`          | 选择没有兄弟的元素（独生子女）。      |
-| `选择器:only-of-type`        | 选择没有同类型兄弟的元素。            |
-| `选择器:root`                | 根元素,`html:root`=`:root`            |
-| `选择器:empty`               | 内容为空元素（空格也算内容）。        |
+```css
+tr:nth-child(even) {
+  background: #f9f9f9;
+}
+li:first-of-type {
+  font-weight: bold;
+}
+p:empty {
+  display: none;
+}
+```
 
-关于 n 的值：公式都是 `an+b` 的格式
+### UI / 表单伪类
 
-1. `0` 或 不写 ：什么都选不中 —— 几乎不用。
-2. `n` ：选中所有子元素 —— 几乎不用。
-3. `1 ~ ∞`：选中对应序号的子元素。
-4. `2n` 或 `even` ：选中序号为偶数的子元素。
-5. `2n+1` 或 `odd` ：选中序号为奇数的子元素。
-6. `-n+3` ：选中的是前 3 个。
+| 伪类                      | 说明                  |
+| ------------------------- | --------------------- |
+| `:checked`                | 选中的 radio/checkbox |
+| `:disabled` / `:enabled`  | 禁用 / 可用表单控件   |
+| `:required` / `:optional` | 必填 / 非必填         |
+| `:invalid` / `:valid`     | 校验失败 / 通过       |
 
-### UI 伪类
+```css
+input:invalid {
+  border-color: red;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+```
 
-| 伪类选择器       | 说明                                  | 示例                                         |
-| ---------------- | ------------------------------------- | -------------------------------------------- |
-| `:checked`       | 选中的复选框或单选框                  | `input:checked { border: 2px solid green; }` |
-| `:disabled`      | 被禁用的表单元素                      | `input:disabled { background: #ccc; }`       |
-| `:enabled`       | 可用的表单元素                        | `input:enabled { background: white; }`       |
-| `:indeterminate` | 不确定状态（主要是 radio 组或进度条） | `input:indeterminate`                        |
+### 逻辑类伪类
 
-### 表单元素
+| 伪类           | 说明               | 优先级特点           |
+| -------------- | ------------------ | -------------------- |
+| `:not(选择器)` | 排除匹配项         | 权重来自括号内选择器 |
+| `:is(A, B, C)` | 匹配任一           | 取列表中**最高**权重 |
+| `:where(A, B)` | 同 `:is`           | 权重恒为 **0**       |
+| `:has(选择器)` | 父元素：含匹配后代 | 相对较新，注意兼容性 |
 
-| 伪类选择器      | 说明                                   | 示例                                               |
-| --------------- | -------------------------------------- | -------------------------------------------------- |
-| `:checked`      | 选中的复选框或单选框                   | `input:checked { border: 2px solid green; }`       |
-| `:disabled`     | 被禁用的表单元素                       | `input:disabled { background: #ccc; }`             |
-| `:enabled`      | 可用的表单元素                         | `input:enabled { background: white; }`             |
-| `:required`     | 必填的表单字段                         | `input:required { border-left: 3px solid red; }`   |
-| `:optional`     | 可选的表单字段                         | `input:optional { border-left: 3px solid green; }` |
-| `:valid`        | 值合法的表单字段                       | `input:valid { background: #e0ffe0; }`             |
-| `:invalid`      | 值不合法的表单字段                     | `input:invalid { background: #ffe0e0; }`           |
-| `:in-range`     | 值在 min-max 范围内的输入框            | `input:in-range`                                   |
-| `:out-of-range` | 值超出 min-max 范围的输入框            | `input:out-of-range`                               |
-| `:read-only`    | 有 readonly 属性的或内容不可编辑的元素 | `input:read-only`                                  |
-| `:read-write`   | 没有 readonly 属性、可编辑的元素       | `input:read-write`                                 |
+```css
+/* 除 .no-style 外所有 li */
+li:not(.no-style) {
+  padding: 4px 0;
+}
 
-### 否定伪类
+/* 等价写法，:where 不增加权重 */
+:where(h1, h2, h3) {
+  margin-block: 1em;
+}
 
-| 语法                 | 说明                     |
-| -------------------- | ------------------------ |
-| `选择器:not(选择器)` | 排除满足括号中条件的元素 |
+/* 含图片的 figure 加边框 */
+figure:has(img) {
+  border: 1px solid #ddd;
+}
+```
 
-### CSS4 新增
+## 伪元素（Pseudo-elements）
 
-| 伪类             | 语法示例                      | 功能说明                                                    |
-| ---------------- | ----------------------------- | ----------------------------------------------------------- |
-| `:where()`       | `:where(.a, .b)`              | 功能同普通选择器，但括号内的特异性(权重)为 0                |
-| `:is()`          | `:is(header, main, footer) p` | 匹配列表中任意一个选择器，特异性取最大值                    |
-| `:has()`         | `article:has(> img)`          | 父元素/祖先元素选择器，选择包含指定子元素的元素             |
-| `:focus-visible` | `button:focus-visible`        | 只有当元素应该显示键盘焦点指示器时才匹配（比:focus 更智能） |
-| `:focus-within`  | `form:focus-within`           | 表单或其子元素获得焦点时生效                                |
+用双冒号 `::` 选中元素的**特定部分**（规范允许单冒号兼容旧写法）。
 
-### 目标伪类（了解）
+| 伪元素                            | 作用                    |
+| --------------------------------- | ----------------------- |
+| `::before` / `::after`            | 在内容前/后生成装饰性盒 |
+| `::first-letter` / `::first-line` | 首字母 / 首行           |
+| `::placeholder`                   | 输入框占位符            |
+| `::selection`                     | 用户选中的文本          |
+| `::marker`                        | 列表项标记              |
 
-| 语法            | 说明               |
-| --------------- | ------------------ |
-| `选择器:target` | 选中锚点指向的元素 |
+```css
+.quote::before {
+  content: "「";
+} /* content 必填 */
+.quote::after {
+  content: "」";
+}
+::selection {
+  background: #b3d4fc;
+}
+```
 
-### 语言伪类（了解）
+## 优先级权重计算清单
 
-| 语法                | 说明                   |
-| ------------------- | ---------------------- |
-| `选择器:lang(语言)` | 根据指定的语言选择元素 |
+计算 `(A, B, C, D)`：
 
-## 伪元素选择器
+1. **A**：行内 `style` 属性中的声明 → 1，否则 0
+2. **B**：ID 选择器个数
+3. **C**：类、属性选择器、伪类个数（`:not()` 只计内部）
+4. **D**：类型、伪元素个数
 
-作用：选中元素中的一些特殊位置
+**练习**：
 
-| 伪元素选择器       | 作用说明                      | 常用示例                                                     |
-| ------------------ | ----------------------------- | ------------------------------------------------------------ |
-| `::before`         | 在元素内容前插入内容          | `p::before { content: "★"; }`                                |
-| `::after`          | 在元素内容后插入内容          | `p::after { content: "★"; }`                                 |
-| `::first-line`     | 选中元素的第一行文本          | `p::first-line { font-weight: bold; }`                       |
-| `::first-letter`   | 选中元素的首字母              | `p::first-letter { font-size: 2em; }`                        |
-| `::selection`      | 选中文本时的样式              | `p::selection { background: yellow; }`                       |
-| `::marker`         | 列表项的标记（如圆点、数字）  | `li::marker { color: red; }`                                 |
-| `::placeholder`    | 输入框的占位符文本            | `input::placeholder { color: gray; }`                        |
-| `::backdrop`       | 模态元素（如 `<dialog>`）背景 | `dialog::backdrop { background: rgba(0,0,0,0.5); }`          |
-| `::cue`            | 视频字幕或媒体轨道的文本      | `::cue { color: yellow; }`                                   |
-| `::spelling-error` | 标记拼写错误的文本            | `span::spelling-error { text-decoration: underline red; }`   |
-| `::grammar-error`  | 标记语法错误的文本            | `span::grammar-error { text-decoration: underline orange; }` |
+| 选择器                | 权重                     |
+| --------------------- | ------------------------ |
+| `p`                   | 0,0,0,1                  |
+| `.nav li`             | 0,0,1,1                  |
+| `#app .nav li.active` | 0,1,2,1                  |
+| `button:hover`        | 0,0,1,1                  |
+| `p::first-line`       | 0,0,0,2                  |
+| `:where(.a, #b) p`    | 0,0,0,1（`:where` 归零） |
 
-## 选择器权重
+## 易错点
 
-**`!important` > `行内样式`(1,0,0,0) > `ID 选择器`(0,1,0,0) > `类选择器`(0,0,1,0) > `元素选择器`(0,0,0,1) > `通配选择器`(0,0,0,0)**
+1. **`:nth-child` vs `:nth-of-type`** — 前者数所有子元素，后者只数同标签；混用导致「选错行」。
+2. **`:empty` 含空白文本** — 元素内有空格文本节点则不算 empty。
+3. **伪元素必须设 `content`** — `::before`/`::after` 无 `content` 不会生成盒。
+4. **过度具体的选择器** — `#page div.item span` 难维护；用 BEM 等 class 策略更清晰。
+5. **`:has()` 性能** — 复杂 `:has` 在大 DOM 上可能触发回流，宜限定范围。
 
-### 权重计算
+## 检查清单
 
-- 每个选择器，都可计算出一组权重(特异性)，格式为： `(a,b,c,d)`
-- `!important` 不属于选择器权重（specificity）体系，不会算进 (a,b,c,d),!important 会把声明提升到「权重体系之外的最高优先级」
-- `a` : 行内样式
-- `b` : ID 选择器的个数
-- `c` : 类、伪类、属性 选择器的个数
-- `d` : 元素、伪元素 选择器的个数
+- [ ] 能区分后代 ` ` 与子代 `>`？
+- [ ] 能写出 `[href^="mailto:"]` 匹配邮件链接？
+- [ ] 表单 `:focus-visible` 与 `:focus` 差异是否了解？
+- [ ] 能否手算 `#nav .item:hover` 的 specificity？
+- [ ] 伪类与伪元素（单/双冒号）能否正确选用？
 
-| 选择器                     | 权重        |
-| -------------------------- | ----------- |
-| `ul>li`                    | `(0,0,0,2)` |
-| `div ul>li p a span`       | `(0,0,0,6)` |
-| `#atguigu .slogan`         | `(0,1,1,0)` |
-| `#atguigu .slogan a`       | `(0,1,1,1)` |
-| `#atguigu .slogan a:hover` | `(0,1,2,1)` |
+## MDN 参考
 
-### 权重比较
-
-按照从左到右的顺序，依次比较大小，当前位胜出后，后面的不再对比
-
-- `(0,1,0,0)` > `(0,0,2,2)`
-- `(0,1,1,0)` > `(0,1,0,3)`
-- `(0,1,1,3)` > `(0,1,1,2)`
+- [CSS 选择器](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_selectors)
+- [基本选择器](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_selectors/Basic_selectors)
+- [组合器](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_selectors/Selectors_and_combinators)
+- [属性选择器](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Attribute_selectors)
+- [伪类](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-classes)
+- [伪元素](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-elements)
+- [`:is()` / `:where()`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:is)
+- [`:has()`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:has)
