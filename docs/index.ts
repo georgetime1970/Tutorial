@@ -2,6 +2,8 @@
 // 汇总顶部导航栏, 首页导航按钮, 侧边栏详情,修改此文件即可全局生效
 import MyThink from "./MyThink";
 import Asm from "./tutorial/Asm";
+import Bash from "./tutorial/Bash";
+import C from "./tutorial/C";
 import Css from "./tutorial/Css";
 import Docker from "./tutorial/Docker";
 import ES6 from "./tutorial/ES6";
@@ -20,6 +22,8 @@ export const nav = [
     text: "基础", // 顶部导航栏分类可以随便写
     // 下面的items.text值必须与目录名一致!!! 否则侧边栏详情将生成错误
     items: [
+      { text: "C", link: C[0].items[0].link, directory: C },
+      { text: "Bash", link: Bash[0].items[0].link, directory: Bash },
       { text: "JavaScript", link: JavaScript[0].items[0].link, directory: JavaScript },
       { text: "ES6", link: ES6[0].items[0].link, directory: ES6 },
       { text: "TypeScript", link: TypeScript[0].items[0].link, directory: TypeScript },
