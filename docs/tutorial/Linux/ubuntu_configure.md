@@ -69,7 +69,7 @@
 
     ```bash
     git config --global user.name "george"
-    git config --global user.email "nihaokexiao@gmali.com"
+    git config --global user.email "nihaokexiao@gmail.com"
     ```
 
 - `glate`: 简单的划词翻译软件,快捷键 `ctrl alt space`
