@@ -3,6 +3,7 @@
 import MyThink from "./MyThink";
 import Asm from "./tutorial/Asm";
 import Bash from "./tutorial/Bash";
+import Books from "./tutorial/Books";
 import C from "./tutorial/C";
 import Css from "./tutorial/Css";
 import Docker from "./tutorial/Docker";
@@ -32,6 +33,7 @@ export const nav = [
   {
     text: "笔记",
     items: [
+      { text: "Books", link: Books[0].items[0].link, directory: Books },
       { text: "Asm", link: Asm[0].items[0].link, directory: Asm },
       { text: "Html", link: Html[0].items[0].link, directory: Html },
       { text: "Css", link: Css[0].items[0].link, directory: Css },
